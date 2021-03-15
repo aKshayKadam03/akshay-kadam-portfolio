@@ -8,14 +8,16 @@ const theme = {
 };
 
 const NavBar = styled.div`
+  position: fixed;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 8vh;
-  padding: 0 50px;
+  z-index: 1000;
+  background-color: red;
   font-family: ${(props) => props.theme.font};
   color: ${(props) => props.theme.color};
-  background: linear-gradient(to right, #ebebeb, #2289f1);
   & :nth-child(${(props) => props.active}) {
     border-bottom: 1px solid white;
   }
@@ -35,6 +37,7 @@ const NavItem = styled.div`
 const Logo = styled.div`
   font-size: 25px;
   font-family: cursive;
+  padding-left: 10px;
 `;
 
 const Grow = styled.div`
