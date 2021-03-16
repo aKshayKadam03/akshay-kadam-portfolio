@@ -1,11 +1,12 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import Navigation from "../Navigation/Navigation";
+import Navigation from "./Navigation";
 import Lottie from "react-lottie";
-import engineer from "../Images/engineer.json";
-import programmer from "../Images/coder.json";
-import confused from "../Images/confused.json";
-import scroll from "../Images/scrollDown.json";
+import engineer from "../Animations/engineer.json";
+import programmer from "../Animations/coder.json";
+import confused from "../Animations/confused.json";
+import scroll from "../Animations/scrollDown.json";
+import { MainHeadingWrapper, SubHeadingWrapper } from "../Elements/Elements";
 
 const defaultOptions = {
   loop: true,
@@ -58,33 +59,24 @@ const Heading = styled.div`
   width: 100%;
 `;
 
-const MainHead = styled.h1`
-  font-size: 3rem;
-  color: #ffffff;
-  font-weight: 600;
-`;
-
-const SubHead = styled.h3`
-  font-size: 2rem;
-  color: #ffffff;
-`;
-
 const Scroller = styled.div`
   margin: 0px auto;
   width: 100px;
 `;
 
-function Home() {
+function Head() {
   return (
     <Wrapper id="home">
       <Header>
         <Navigation></Navigation>
         <HeaderContent>
           <Heading>
-            <MainHead>Hi , it's nice to meet you</MainHead>
-            <SubHead>
-              My name is Akshay, I am an aspiring full stack developer.
-            </SubHead>
+            <MainHeadingWrapper color="white">
+              <h1>Hi , it's nice to meet you</h1>
+            </MainHeadingWrapper>
+            <SubHeadingWrapper color="white">
+              <h4>My name is Akshay, I am an aspiring full stack developer.</h4>
+            </SubHeadingWrapper>
           </Heading>
           <Lottie options={defaultOptions}></Lottie>
         </HeaderContent>
@@ -96,4 +88,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Head;

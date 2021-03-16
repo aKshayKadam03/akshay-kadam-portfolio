@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../Images/logo.json";
+import logo from "../Animations/logo.json";
 import Lottie from "react-lottie";
 
 import styled, { ThemeProvider } from "styled-components";
