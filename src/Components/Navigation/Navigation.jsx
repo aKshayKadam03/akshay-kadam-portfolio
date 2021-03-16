@@ -1,6 +1,17 @@
 import React from "react";
+import logo from "../Images/logo.json";
+import Lottie from "react-lottie";
 
 import styled, { ThemeProvider } from "styled-components";
+
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: logo,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
 
 const theme = {
   font: "Segoe UI",
@@ -8,20 +19,23 @@ const theme = {
 };
 
 const NavBar = styled.div`
-  position: fixed;
+  position: ${(props) => props.position};
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 8vh;
   z-index: 1000;
-  background-color: red;
+  transition: all 1s ease;
+  background-color: ${(props) =>
+    props.position === "fixed" ? "#5753c9" : "none"};
   font-family: ${(props) => props.theme.font};
   color: ${(props) => props.theme.color};
   & :nth-child(${(props) => props.active}) {
     border-bottom: 1px solid white;
   }
 `;
+
 const NavItem = styled.div`
   margin: 20px;
   > a {
@@ -46,6 +60,17 @@ const Grow = styled.div`
 
 function Navigation() {
   const [activeLink, setActiveLink] = React.useState(3);
+  const [navPosition, setNavPosition] = React.useState("static");
+
+  const handleNavigationPosition = () => {
+    if (window.pageYOffset >= 900) {
+      setNavPosition("fixed");
+    } else {
+      setNavPosition("static");
+    }
+  };
+
+  window.addEventListener("scroll", handleNavigationPosition);
 
   const activeLinkHandler = (linkNo) => {
     setActiveLink(linkNo);
@@ -53,8 +78,10 @@ function Navigation() {
 
   return (
     <ThemeProvider theme={theme}>
-      <NavBar active={activeLink}>
-        <Logo>AK</Logo>
+      <NavBar position={navPosition} active={activeLink}>
+        <div>
+          <Lottie width="150px" options={defaultOptions}></Lottie>
+        </div>
         <Grow></Grow>
         <NavItem onClick={() => activeLinkHandler(3)}>
           <a href="#home">Home</a>

@@ -12,6 +12,7 @@ const First = styled.div`
   border-bottom: 1px solid black;
   z-index: 3;
   background-color: white;
+  text-align: center;
 `;
 
 const Second = styled.div`
@@ -38,10 +39,11 @@ const StickyOne = styled.div`
   top: 30%;
   left: 50%;
   transform: translate(-50%, 0%);
-  width: 500px;
+  max-width: 500px;
   height: 60vh;
   background-image: url(${(props) => props.src});
   border-bottom: 1px solid black;
+  width: 100%;
 `;
 
 const StickyTwo = styled.div`
@@ -49,11 +51,12 @@ const StickyTwo = styled.div`
   top: 30%;
   left: 50%;
   transform: translate(-50%, -30%);
-  width: 500px;
+  max-width: 500px;
   height: 60vh;
   background-image: url(${(props) => props.src});
   border-bottom: 1px solid black;
   z-index: 2;
+  width: 100%;
 `;
 
 const StickyThree = styled.div`
@@ -61,12 +64,13 @@ const StickyThree = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 500px;
+  max-width: 500px;
   height: 60vh;
   background-image: url(${(props) => props.src});
   border-bottom: 1px solid black;
   z-index: 1;
   background-size: cover;
+  width: 100%;
 `;
 
 const Envelope = styled.div`
@@ -75,13 +79,15 @@ const Envelope = styled.div`
   transform: translate(-50%);
   background-image: url(${(props) => props.src});
   bottom: 250px;
-  width: 550px;
+  max-width: 550px;
   height: 630px;
+  width: 100%;
   z-index: 100;
 `;
 
 const EnvelopeBottom = styled.img`
-  width: 550px;
+  max-width: 550px;
+  width: 100%;
   margin: 430px auto 0;
 `;
 
@@ -89,7 +95,7 @@ const ChannelBottom = styled.div`
   position: absolute;
   height: 600px;
   width: 100%;
-  background-color: grey;
+  background-color: #e2dbdb;
   z-index: 10;
   bottom: 0;
 `;
