@@ -2,7 +2,7 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import Navigation from "./Navigation";
 import Lottie from "react-lottie";
-import engineer from "../Animations/engineer.json";
+import engineer from "../Animations/working.json";
 import programmer from "../Animations/coder.json";
 import confused from "../Animations/confused.json";
 import scroll from "../Animations/scrollDown.json";
@@ -11,7 +11,7 @@ import { MainHeadingWrapper, SubHeadingWrapper } from "../Elements/Elements";
 const defaultOptions = {
   loop: true,
   autoplay: true,
-  animationData: programmer,
+  animationData: engineer,
   rendererSettings: {
     preserveAspectRatio: "xMidYMid slice",
   },

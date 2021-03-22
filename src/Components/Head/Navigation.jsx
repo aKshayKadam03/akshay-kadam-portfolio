@@ -1,17 +1,6 @@
 import React from "react";
-import logo from "../Animations/logo.json";
-import Lottie from "react-lottie";
 
 import styled, { ThemeProvider } from "styled-components";
-
-const defaultOptions = {
-  loop: true,
-  autoplay: true,
-  animationData: logo,
-  rendererSettings: {
-    preserveAspectRatio: "xMidYMid slice",
-  },
-};
 
 const theme = {
   font: "Segoe UI",
@@ -25,10 +14,11 @@ const NavBar = styled.div`
   align-items: center;
   justify-content: center;
   height: 8vh;
+  margin-bottom: 50px;
   z-index: 1000;
-  transition: all 1s ease;
+  transition: 500ms ease-out;
   background-color: ${(props) =>
-    props.position === "fixed" ? "#5753c9" : "none"};
+    props.position === "fixed" ? "#1e7aa5" : "none"};
   font-family: ${(props) => props.theme.font};
   color: ${(props) => props.theme.color};
   & :nth-child(${(props) => props.active}) {
@@ -49,9 +39,8 @@ const NavItem = styled.div`
 `;
 
 const Logo = styled.div`
-  font-size: 25px;
-  font-family: cursive;
-  padding-left: 10px;
+  font-size: 40px;
+  padding-left: 30px;
 `;
 
 const Grow = styled.div`
@@ -79,9 +68,7 @@ function Navigation() {
   return (
     <ThemeProvider theme={theme}>
       <NavBar position={navPosition} active={activeLink}>
-        <div>
-          <Lottie width="150px" options={defaultOptions}></Lottie>
-        </div>
+        <Logo>{/* <i className="fas fa-code"></i> */}</Logo>
         <Grow></Grow>
         <NavItem onClick={() => activeLinkHandler(3)}>
           <a href="#home">Home</a>
