@@ -10,7 +10,7 @@ import {
 
 const Wrapper = styled.div`
   width: 100%;
-  margin: 20px auto;
+  margin: 0px auto;
   min-height: 50vh;
 `;
 
@@ -21,6 +21,7 @@ const Content = styled.div`
   width: 80%;
   margin: 50px auto;
   flex-wrap: wrap;
+
   > div:nth-child(1) {
     max-width: 900px;
   }
