@@ -10,7 +10,7 @@ import {
 
 const Wrapper = styled.div`
   width: 100%;
-  margin: 0px auto;
+  margin: 60px auto 0px;
   min-height: 50vh;
 `;
 

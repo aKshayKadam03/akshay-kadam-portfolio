@@ -13,16 +13,17 @@ const NavBar = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 8vh;
+  height: 7vh;
   margin-bottom: 50px;
   z-index: 1000;
   transition: 500ms ease-out;
   background-color: ${(props) =>
-    props.position === "fixed" ? "#1e7aa5" : "none"};
+    props.position === "fixed" ? "white" : "none"};
+  color: ${(props) => (props.position === "fixed" ? "black" : "white")};
   font-family: ${(props) => props.theme.font};
-  color: ${(props) => props.theme.color};
   & :nth-child(${(props) => props.active}) {
-    border-bottom: 1px solid white;
+    border-bottom: ${(props) =>
+      props.position === "fixed" ? "1px solid black" : " 1px solid white"};
   }
 `;
 
@@ -31,7 +32,7 @@ const NavItem = styled.div`
   > a {
     text-decoration: none;
     font-size: 17px;
-    color: #fffbfb;
+    color: inherit;
     text-transform: uppercase;
     font-family: ${(props) => props.theme.font};
     font-weight: 600;
