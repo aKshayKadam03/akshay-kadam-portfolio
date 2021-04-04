@@ -1,10 +1,8 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import Navigation from "./Navigation";
 import Lottie from "react-lottie";
 import engineer from "../Animations/working.json";
-import programmer from "../Animations/coder.json";
-import confused from "../Animations/confused.json";
 import scroll from "../Animations/scrollDown.json";
 import { MainHeadingWrapper, SubHeadingWrapper } from "../Elements/Elements";
 

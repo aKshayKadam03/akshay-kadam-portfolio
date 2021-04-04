@@ -2,9 +2,8 @@ import styled from "styled-components";
 
 export const MainHeadingWrapper = styled.div`
   text-align: center;
-
   > h1 {
-    font-size: 3rem;
+    font-size: ${(props) => (props.size ? props.size : "3rem")};
     width: fit-content;
     margin: 0 auto;
     color: ${(props) => props.color};
@@ -33,7 +32,7 @@ export const ParagraphWrapper = styled.div`
     font-size: 1.2 rem;
     line-height: 1.3;
     letter-spacing: 0.3ch;
-    color: #141313;
+    color: ${(props) => (props.color ? props.color : "#141313")};
     font-weight: 400;
   }
 `;
