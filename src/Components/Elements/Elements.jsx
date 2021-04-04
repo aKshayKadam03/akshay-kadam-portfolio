@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const MainHeadingWrapper = styled.div`
   text-align: center;
+  padding: 30px;
   > h1 {
     font-size: ${(props) => (props.size ? props.size : "3rem")};
     width: fit-content;

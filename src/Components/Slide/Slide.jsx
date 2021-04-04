@@ -1,14 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import Proficiencies from "./Proficiencies";
+import { EducationTimeline, InternshipTimeline } from "./Timeline";
 import {
   MainHeadingWrapper,
   SubHeadingWrapper,
   ParagraphWrapper,
 } from "../Elements/Elements";
-import resumePicture from "../Images/resume.jpg";
-import ui from "../Images/ui.jpg";
-import ux from "../Images/ux.jpg";
+
 import envelope from "../Images/envelope.svg";
 import envelopeBottom from "../Images/bottom.svg";
 //resumes
@@ -31,7 +30,8 @@ import vscode from "../Icons/vscode.svg";
 import redis from "../Icons/redis.svg";
 import slack from "../Icons/slack.svg";
 import notion from "../Icons/notion.svg";
-import Timeline from "./Timeline";
+
+import Projects from "./Projects/Projects";
 
 const SliderWrapper = styled.div`
   background-image: linear-gradient(
@@ -80,7 +80,8 @@ const SlideSectionOne = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 33%;
+    margin: 0px auto;
+    width: 30%;
     min-width: 200px;
   }
 `;
@@ -142,7 +143,7 @@ const SectionWrapper = styled.div`
   position: relative;
 `;
 
-const Bridge = styled.div`
+const BridgeOne = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -333,7 +334,7 @@ function Slide() {
           </div>
         </SlideSectionOne>
         <SectionWrapper>
-          <Bridge backgroundColor="#e9e9e9">
+          <BridgeOne backgroundColor="#e9e9e9">
             <MainHeadingWrapper color="black">
               <h1>Education</h1>
               <div></div>
@@ -356,25 +357,26 @@ function Slide() {
                 deleniti.
               </p>
             </ParagraphWrapper>
-          </Bridge>
-          <SlideSectionOne marginTop="15%" backgroundColor="#e9e9e9">
+          </BridgeOne>
+          <SlideSectionOne marginTop="15.3%" backgroundColor="#e9e9e9">
             <div>
-              <h1>first</h1>
-              <Timeline></Timeline>
+              <SubHeadingWrapper color="black">
+                <h4>Time-Line</h4>
+              </SubHeadingWrapper>
+              <EducationTimeline></EducationTimeline>
             </div>
+            <div></div>
             <div>
-              <h1>second</h1>
-            </div>
-            <div>
-              <h1>third</h1>
+              <SubHeadingWrapper color="black">
+                <h4>Internships</h4>
+              </SubHeadingWrapper>
+              <InternshipTimeline></InternshipTimeline>
             </div>
           </SlideSectionOne>
         </SectionWrapper>
         <SectionWrapper>
-          <Bridge backgroundColor="#b96e6e"></Bridge>
-          <SlideSectionOne backgroundColor="#b96e6e"></SlideSectionOne>
+          <Projects></Projects>
         </SectionWrapper>
-
         <SlideCanal>
           <Resume ref={resumeRef} img={currentImage}></Resume>
           <div>
