@@ -186,7 +186,7 @@ function Projects() {
         <div></div>
         <div>
           {projects
-            ?.filter((_, index) => index > 2)
+            ?.filter((_, index) => index >= 2)
             .map((project) => (
               <ProjectCard key={project.title} {...project}></ProjectCard>
             ))}

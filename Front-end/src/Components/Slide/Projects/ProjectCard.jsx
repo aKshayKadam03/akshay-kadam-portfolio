@@ -24,21 +24,24 @@ const techStackIcons = {
 const ProjectCardWrapper = styled.div`
   width: 100%;
   max-width: 450px;
-  padding: 15px;
   display: flex;
   flex-direction: column;
   background-color: #e7e9e9;
   border-radius: 5px;
   color: black;
   margin: 10px auto;
+  > div:nth-child(2) {
+    padding: 10px 30px;
+  }
 `;
 
 const ProjectImage = styled.div`
   width: 100%;
+  border-radius: 10px;
   margin: 0 auto;
-  border-bottom: 1px solid #2c2727;
   > img {
     width: 100%;
+    border-radius: 10px;
   }
 `;
 
@@ -56,7 +59,7 @@ const ProjectIcon = styled.div`
 `;
 
 const Button = styled.button`
-  padding: 5px 15px;
+  padding: 5px;
   background-color: ${(props) => props.backgroundColor};
   color: ${(props) => props.color};
   font-size: 18px;
@@ -69,7 +72,7 @@ const Button = styled.button`
     color: black;
   }
   > i {
-    margin: 0 10px;
+    margin: 0 5px;
   }
 `;
 
@@ -89,26 +92,28 @@ function ProjectCard({
       <ProjectImage>
         <img src={img} alt={title}></img>
       </ProjectImage>
-      <SubHeadingWrapper>
-        <h4>{title}</h4>
-      </SubHeadingWrapper>
-      <ParagraphWrapper>
-        <p>{description}</p>
-      </ParagraphWrapper>
-      <ProjectIcon>
-        {techStack?.map((icon) => (
-          <img height="50px" src={techStackIcons[icon]} alt="icons"></img>
-        ))}
-      </ProjectIcon>
       <div>
-        <Button color="#fff" backgroundColor="#28527a">
-          Github
-          <i className="fab fa-github"></i>
-        </Button>
-        <Button color="#28527a" backgroundColor="#fff">
-          Demo
-          <i className="fas fa-chevron-right"> </i>
-        </Button>
+        <SubHeadingWrapper>
+          <h4>{title}</h4>
+        </SubHeadingWrapper>
+        <ParagraphWrapper>
+          <p>{description}</p>
+        </ParagraphWrapper>
+        <ProjectIcon>
+          {techStack?.map((icon) => (
+            <img height="50px" src={techStackIcons[icon]} alt="icons"></img>
+          ))}
+        </ProjectIcon>
+        <div>
+          <Button color="#fff" backgroundColor="#28527a">
+            Github
+            <i className="fab fa-github"></i>
+          </Button>
+          <Button color="#28527a" backgroundColor="#fff">
+            Demo
+            <i className="fas fa-chevron-right"> </i>
+          </Button>
+        </div>
       </div>
     </ProjectCardWrapper>
   );

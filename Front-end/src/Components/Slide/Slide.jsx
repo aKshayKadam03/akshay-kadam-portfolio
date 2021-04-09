@@ -91,9 +91,10 @@ const Resume = styled.div`
   height: 600px;
   width: 100%;
   max-width: 500px;
-  margin: 0 auto;
   z-index: 10;
   border-radius: 5px;
+  padding-bottom: 40px;
+  margin: 40px auto;
 `;
 
 const Envelope = styled.div`
@@ -108,6 +109,8 @@ const Envelope = styled.div`
   display: grid;
   place-content: center;
   position: relative;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
 `;
 
 const EnvelopeBottom = styled.div`
@@ -403,7 +406,9 @@ function Slide() {
               <ResumeAction>
                 <ResumeButton color="#28527A" backgroundColor="white">
                   <i className="fas fa-download">
-                    <span> Download</span>
+                    <a href={envelope} download>
+                      <span> Download</span>
+                    </a>
                   </i>
                 </ResumeButton>
                 <ResumeButton
