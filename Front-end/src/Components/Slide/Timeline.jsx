@@ -1,92 +1,149 @@
 import React from "react";
-import { Chrono } from "react-chrono";
-import school from "../Icons/school.svg";
-import graduation from "../Icons/graduation.svg";
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
 
 const educationItems = [
   {
-    title: "2005-13",
-    cardTitle: "Royal Palace School",
-    cardSubtitle: "Graduated high school from here",
-    cardDetailedText:
-      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, quisquam atque, libero cupiditate iste dolor mollitia quibusdam rem, ipsum reprehenderit nulla doloribus. Qui minus impedit praesentium ipsa distinctio voluptatum voluptate ipsum. Ducimus deleniti, qui dicta autem animi temporibus iusto praesentium! Dolorem ipsa magnam, nulla enim totam quasi culpa cupiditate a!",
+    time: "2020-21",
+    school: "Masai School",
+    course: "Full Stack Web Development",
+    details: " Lorem ipsum dolor sit amet consectetur adipisicing elit.  ",
   },
   {
-    title: "2013-15",
-    cardTitle: "Govindram Seskaria College of Science",
-    cardSubtitle: "Pre-University",
-    cardDetailedText:
-      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, quisquam atque, libero cupiditate iste dolor mollitia quibusdam rem, ipsum reprehenderit nulla doloribus. Qui minus impedit praesentium ipsa distinctio voluptatum voluptate ipsum. Ducimus deleniti, qui dicta autem animi temporibus iusto praesentium! Dolorem ipsa magnam, nulla enim totam quasi culpa cupiditate a!",
+    time: "2015-20",
+    school: "KLE's Dr M.S Sheshgiri college of engineering and technology",
+    course: "B.E Computer Science",
+    details: " Lorem ipsum dolor sit amet consectetur adipisicing elit.  ",
   },
   {
-    title: "2015-20",
-    cardTitle: "KLE's Dr M.S Sheshgiri college of engineering and technology",
-    cardSubtitle: "Bachelors degree in computer science and engineering",
-    cardDetailedText:
-      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, quisquam atque, libero cupiditate iste dolor mollitia quibusdam rem, ipsum reprehenderit nulla doloribus. Qui minus impedit praesentium ipsa distinctio voluptatum voluptate ipsum. Ducimus deleniti, qui dicta autem animi temporibus iusto praesentium! Dolorem ipsa magnam, nulla enim totam quasi culpa cupiditate a!",
-  },
-  {
-    title: "2020-21",
-    cardTitle: "Masai School",
-    cardSubtitle: "Full Stack Web Development",
-    cardDetailedText:
-      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, quisquam atque, libero cupiditate iste dolor mollitia quibusdam rem, ipsum reprehenderit nulla doloribus. Qui minus impedit praesentium ipsa distinctio voluptatum voluptate ipsum. Ducimus deleniti, qui dicta autem animi temporibus iusto praesentium! Dolorem ipsa magnam, nulla enim totam quasi culpa cupiditate a!",
+    time: "2013-15",
+    school: "Govindram Seskaria College of Science",
+    course: "Pre-University",
+    details: " Lorem ipsum dolor sit amet consectetur adipisicing elit.  ",
   },
 ];
 
 function EducationTimeline() {
   return (
     <>
-      <Chrono hideControls mode="VERTICAL" items={educationItems}>
-        <div className="chrono-icons">
-          <img src={school} alt="school" />
-          <img
-            src="https://lh3.googleusercontent.com/proxy/-ilI7D96XYAUj1sHMP6tJOR8sp9Efc9kAfuxGnqUCVP_K0k4t8U-6R5wgqo-D1FDc6EENmcCd-xyNRbxwN4fQBCA"
-            alt="college"
-          />
-          <img
-            src="https://storage.googleapis.com/ezap-prod/colleges/5299/kle-dr-m-s-sheshgiri-college-of-engineering-and-technology-logo.gif"
-            alt="graduation"
-          />
-          <img
-            src="https://d27028dliefpk3.cloudfront.net/static/favicon/favicon.ico"
-            alt="skill-school"
-          />
-        </div>
-      </Chrono>
+      <VerticalTimeline position="left" layout="1-column-left">
+        {educationItems?.map((history) => (
+          <EducationTimelineCard {...history} />
+        ))}
+      </VerticalTimeline>
     </>
+  );
+}
+
+function EducationTimelineCard({ time, school, course, details }) {
+  return (
+    <VerticalTimelineElement
+      className="vertical-timeline-element--work"
+      contentStyle={{
+        textAlign: "left",
+        background: "rgb(255, 255, 255)",
+        color: "#0e0202",
+      }}
+      contentArrowStyle={{ borderRight: "7px solid  rgb(255, 255, 255)" }}
+      date={time}
+      iconStyle={{
+        background: "rgb(237, 240, 241)",
+        color: "#1a1111",
+        transform: "scale(0.4)",
+      }}
+    >
+      <h3
+        style={{ color: "#08040a" }}
+        className="vertical-timeline-element-title"
+      >
+        {course}
+      </h3>
+      <h4
+        style={{ color: "#463535" }}
+        className="vertical-timeline-element-subtitle"
+      >
+        {school}
+      </h4>
+      <p>{details}</p>
+    </VerticalTimelineElement>
   );
 }
 
 function InternshipTimeline() {
   const internshipItems = [
     {
-      title: "2019-20",
-      cardTitle: "Digital Marketing and Web development intern",
-      cardSubtitle: "Cubicode Digital Media LLP",
-      cardDetailedText:
-        " Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, quisquam atque, libero cupiditate iste dolor mollitia quibusdam rem, ipsum reprehenderit nulla doloribus. Qui minus impedit praesentium ipsa distinctio voluptatum voluptate ipsum. Ducimus deleniti, qui dicta autem animi temporibus iusto praesentium! Dolorem ipsa magnam, nulla enim totam quasi culpa cupiditate a!",
+      time: "2020-20",
+      position: "Web Development Intern",
+      company: "CrackMbaInterview",
+      details: [
+        "Revamped the existing website.",
+        "Updated WordPress and plugins.",
+        "Integrated authentication and authorization.",
+        "Integrated payment gateway",
+      ],
     },
     {
-      title: "2020-20",
-      cardTitle: "Web Development Intern",
-      cardSubtitle: "CrackMbaInterview",
-      cardDetailedText:
-        " Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, quisquam atque, libero cupiditate iste dolor mollitia quibusdam rem, ipsum reprehenderit nulla doloribus. Qui minus impedit praesentium ipsa distinctio voluptatum voluptate ipsum. Ducimus deleniti, qui dicta autem animi temporibus iusto praesentium! Dolorem ipsa magnam, nulla enim totam quasi culpa cupiditate a!",
+      time: "2019-20",
+      position: "Digital Marketing and Web development intern",
+      company: "Cubicode Digital Media LLP",
+      details: [
+        "Got requirements from clients.",
+        "Built and maintained websites with WordPress and basic HTML/CSS.",
+        "Did keyword research for SEO.",
+      ],
     },
   ];
   return (
     <>
-      <Chrono hideControls mode="VERTICAL" items={internshipItems}>
-        <div className="chrono-icons">
-          <img
-            src="https://yt3.ggpht.com/a/AATXAJw-9SN50E3jsKsoTsJmAr8lcv47hiyT8lGkSyuC=s900-c-k-c0xffffffff-no-rj-mo"
-            alt="cubiccode"
-          />
-          <img src={graduation} alt="crackMbaInterview" />
-        </div>
-      </Chrono>
+      <VerticalTimeline position="left" layout="1-column-left">
+        {internshipItems.map((intern) => (
+          <InternshipTimelineCard {...intern} />
+        ))}
+      </VerticalTimeline>
     </>
+  );
+}
+
+function InternshipTimelineCard({ time, position, company, details }) {
+  return (
+    <VerticalTimelineElement
+      className="vertical-timeline-element--work"
+      contentStyle={{
+        textAlign: "left",
+        background: "rgb(255, 255, 255)",
+        color: "#161218",
+      }}
+      contentArrowStyle={{ borderRight: "7px solid  rgb(255, 255, 255)" }}
+      date={time}
+      iconStyle={{
+        background: "rgb(237, 240, 241)",
+        color: "#fff",
+        transform: "scale(0.4)",
+      }}
+    >
+      <h3
+        style={{ color: "#0a070c" }}
+        className="vertical-timeline-element-title"
+      >
+        {position}
+      </h3>
+      <h4
+        style={{ color: "#463535" }}
+        className="vertical-timeline-element-subtitle"
+      >
+        {company}
+      </h4>
+      <p>
+        <ul>
+          {details.map((list) => (
+            <li>{list}</li>
+          ))}
+        </ul>
+      </p>
+    </VerticalTimelineElement>
   );
 }
 

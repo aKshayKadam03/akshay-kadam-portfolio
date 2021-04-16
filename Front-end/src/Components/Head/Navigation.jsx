@@ -8,7 +8,6 @@ const theme = {
 };
 
 const NavBar = styled.div`
-  position: ${(props) => props.position};
   width: 100%;
   display: flex;
   align-items: center;
@@ -17,18 +16,16 @@ const NavBar = styled.div`
   margin-bottom: 50px;
   z-index: 1000;
   transition: 500ms ease-out;
-  background-color: ${(props) =>
-    props.position === "fixed" ? "white" : "none"};
-  color: ${(props) => (props.position === "fixed" ? "black" : "white")};
+  color: white;
   font-family: ${(props) => props.theme.font};
-  & :nth-child(${(props) => props.active}) {
-    border-bottom: ${(props) =>
-      props.position === "fixed" ? "1px solid black" : " 1px solid white"};
-  }
 `;
 
 const NavItem = styled.div`
   margin: 20px;
+
+  :hover {
+    border-bottom: 1px solid white;
+  }
   > a {
     text-decoration: none;
     font-size: 17px;
@@ -46,21 +43,13 @@ const Logo = styled.div`
 
 const Grow = styled.div`
   flex-grow: 1;
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;
 
 function Navigation() {
   const [activeLink, setActiveLink] = React.useState(3);
-  const [navPosition, setNavPosition] = React.useState("static");
-
-  const handleNavigationPosition = () => {
-    if (window.pageYOffset >= 900) {
-      setNavPosition("fixed");
-    } else {
-      setNavPosition("static");
-    }
-  };
-
-  window.addEventListener("scroll", handleNavigationPosition);
 
   const activeLinkHandler = (linkNo) => {
     setActiveLink(linkNo);
@@ -68,18 +57,21 @@ function Navigation() {
 
   return (
     <ThemeProvider theme={theme}>
-      <NavBar position={navPosition} active={activeLink}>
-        <Logo>{/* <i className="fas fa-code"></i> */}</Logo>
+      <NavBar active={activeLink}>
+        <Logo>
+          <p></p>
+        </Logo>
         <Grow></Grow>
-        <NavItem onClick={() => activeLinkHandler(3)}>
-          <a href="#home">Home</a>
-        </NavItem>
         <NavItem onClick={() => activeLinkHandler(4)}>
           <a href="#about">About</a>
+        </NavItem>
+        <NavItem onClick={() => activeLinkHandler(3)}>
+          <a href="#projects">Projects</a>
         </NavItem>
         <NavItem onClick={() => activeLinkHandler(5)}>
           <a href="#contact">Contact</a>
         </NavItem>
+        <NavItem></NavItem>
       </NavBar>
     </ThemeProvider>
   );

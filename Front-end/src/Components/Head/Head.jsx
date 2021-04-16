@@ -25,11 +25,19 @@ const scrollOptions = {
 };
 
 const Header = styled.div`
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     -225deg,
     #174cee 0%,
     #1e7aa5 48%,
     #313979 100%
+  ); */
+  background-image: linear-gradient(
+    to left bottom,
+    #250730,
+    #1e0828,
+    #18081f,
+    #110716,
+    #070509
   );
   height: 100vh;
   position: relative;
@@ -46,10 +54,12 @@ const HeaderContent = styled.div`
   align-items: center;
 
   > div {
-    max-width: 550px;
+    max-width: 650px;
   }
-  @media (max-width: 768px) {
-    flex-wrap: wrap;
+  @media (max-width: 1200px) {
+    flex-direction: column;
+    > div {
+    }
   }
 `;
 
@@ -60,6 +70,9 @@ const Heading = styled.div`
 const Scroller = styled.div`
   margin: 0px auto;
   width: 100px;
+  @media (max-width: 1000px) {
+    display: none;
+  }
 `;
 
 function Head() {

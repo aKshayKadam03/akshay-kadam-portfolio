@@ -35,22 +35,6 @@ const Profile = styled.div`
   background-color: #bdb4b4;
   margin: 50px auto;
   clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
-  ::before {
-    content: "Know More";
-    display: flex;
-    color: #ffffff;
-    font-size: 25px;
-    display: block;
-    background-color: #000000;
-    opacity: 0.7;
-    height: 100%;
-    transform: scaleY(0);
-    transition-property: transform;
-    transition-duration: 500ms;
-  }
-  :hover::before {
-    transform: scaleY(1);
-  }
 `;
 
 const Social = styled.div`

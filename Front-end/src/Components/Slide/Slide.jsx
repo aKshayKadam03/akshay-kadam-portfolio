@@ -16,31 +16,18 @@ import resumeOne from "../Images/resumeOne.png";
 import resumeTwo from "../Images/resumeTwo.png";
 import resumeFinal from "../Images/resumeFinal.png";
 
-//icons
-import html from "../Icons/html.svg";
-import css from "../Icons/css.svg";
-import javascript from "../Icons/javascript.svg";
-import react from "../Icons/react.svg";
-import node from "../Icons/node.svg";
-import express from "../Icons/express.svg";
-import git from "../Icons/git.svg";
-import heroku from "../Icons/heroku.svg";
-import mongodb from "../Icons/mongodb.svg";
-import redux from "../Icons/redux.svg";
-import vscode from "../Icons/vscode.svg";
-import redis from "../Icons/redis.svg";
-import slack from "../Icons/slack.svg";
-import notion from "../Icons/notion.svg";
-
 import Projects from "./Projects/Projects";
 
 const SliderWrapper = styled.div`
   background-image: linear-gradient(
-    -225deg,
-    #174cee 0%,
-    #1e7aa5 48%,
-    #313979 100%
+    to left bottom,
+    #250730,
+    #1e0828,
+    #18081f,
+    #110716,
+    #070509
   );
+
   color: #f6eeee;
 `;
 
@@ -65,6 +52,9 @@ const SlideCanal = styled.div`
   height: 100%;
   flex-direction: column;
   justify-content: space-between;
+  @media (max-width: 1100px) {
+    position: relative;
+  }
 `;
 
 const SlideSectionOne = styled.div`
@@ -73,13 +63,34 @@ const SlideSectionOne = styled.div`
   justify-content: space-between;
   background-color: ${(props) => props.backgroundColor};
   padding-top: ${(props) => props.paddingTop};
+  padding-bottom: 100px;
+
   > div {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     margin: 0 auto;
     width: 30%;
-    min-width: 200px;
+    min-width: 250px;
+  }
+  > div:nth-child(2) {
+    min-width: 500px;
+  }
+
+  @media (max-width: 750px) {
+    flex-direction: column;
+    padding-top: 100px;
+    > div {
+      min-width: 410px;
+    }
+  }
+  @media (max-width: 1100px) {
+    > div:nth-child(2) {
+      display: none;
+    }
+    > div {
+      width: 45%;
+    }
   }
 `;
 
@@ -88,13 +99,16 @@ const Resume = styled.div`
   background-size: cover;
   position: sticky;
   top: 10%;
-  height: 600px;
+  height: 70vh;
   width: 100%;
   max-width: 500px;
   z-index: 10;
   border-radius: 5px;
   padding-bottom: 40px;
   margin: 40px auto;
+  @media (max-width: 750px) {
+    max-width: 420px;
+  }
 `;
 
 const Envelope = styled.div`
@@ -127,8 +141,10 @@ const EnvelopeBottom = styled.div`
 
 const ResumeAction = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  border: 1px solid black;
 `;
 
 const ResumeButton = styled.button`
@@ -146,6 +162,10 @@ const ResumeButton = styled.button`
     margin: 10px;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   }
+  a {
+    text-decoration: none;
+    color: black;
+  }
 `;
 
 const SectionWrapper = styled.div`
@@ -160,15 +180,30 @@ const BridgeOne = styled.div`
   width: 100%;
   margin: 0 auto;
   background-color: ${(props) => props.backgroundColor};
+
   min-height: 400px;
   z-index: 99;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-width: 400px;
+
+  :after {
+    content: "";
+    width: 50%;
+    border-bottom: 2px solid #440f52;
+    border-radius: 10px;
+    margin: 30px auto;
+    margin-bottom: -30px;
+    box-shadow: -8px 8px 22px #b894b9;
+  }
   p {
     width: 90%;
     max-width: 1200px;
     margin: 30px auto;
+  }
+  @media (max-width: 750px) {
+    position: relative;
   }
 `;
 
@@ -181,30 +216,27 @@ const IconHolder = styled.div`
 
   > div {
     width: 50%;
-    min-width: 300px;
+    min-width: 200px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin: 2px auto;
+    justify-content: flex-start;
+    margin: 0px auto;
     padding: 5px 15px;
-    border-radius: 5px;
     color: #f8f8f8;
-  }
-  > div:hover {
-    > img {
-      transform: scale(1.4);
-      transition: transform 300ms ease;
+    font-size: 18px;
+
+    > div:nth-child(2) {
+      min-width: 200px;
+      text-align: left;
+      margin: 2px 10px;
     }
   }
 `;
 
-const Icons = styled.img`
+const Icons = styled.div`
   width: 10%;
-  min-width: 60px;
-  height: 40px;
-  background-color: white;
-  padding: 5px;
-  border-radius: 5px;
+  height: 20px;
+  filter: invert(0%);
 `;
 
 function Slide() {
@@ -223,17 +255,17 @@ function Slide() {
   };
 
   //changing images with scroll height
-  React.useEffect(() => {
-    document.addEventListener("scroll", () => {
-      if (window.pageYOffset < 3000) {
-        setCurrentImage(resumeOne);
-      } else if (window.pageYOffset < 3700) {
-        setCurrentImage(resumeTwo);
-      } else {
-        setCurrentImage(resumeFinal);
-      }
-    });
-  });
+  // React.useEffect(() => {
+  //   document.addEventListener("scroll", () => {
+  //     if (window.pageYOffset < 3000) {
+  //       setCurrentImage(resumeOne);
+  //     } else if (window.pageYOffset < 3700) {
+  //       setCurrentImage(resumeTwo);
+  //     } else {
+  //       setCurrentImage(resumeFinal);
+  //     }
+  //   });
+  // });
 
   return (
     <SliderWrapper>
@@ -243,73 +275,82 @@ function Slide() {
           <div>
             <div>
               <MainHeadingWrapper size="31px">
-                <h1>Front End</h1>
+                <h1>Technical Skills</h1>
               </MainHeadingWrapper>
               <IconHolder>
                 <div>
-                  <Icons alt="icons" src={html}></Icons>
+                  <Icons>
+                    <i className="devicon-html5-plain colored"></i>
+                  </Icons>
                   <ParagraphWrapper color="white">
                     <p>HTML</p>
                   </ParagraphWrapper>
                 </div>
                 <div>
-                  <Icons alt="icons" src={css}></Icons>
+                  <Icons>
+                    <i className="devicon-css3-plain colored"></i>
+                  </Icons>
                   <ParagraphWrapper color="white">
                     <p>CSS</p>
                   </ParagraphWrapper>
                 </div>
                 <div>
-                  <Icons alt="icons" src={javascript}></Icons>
+                  <Icons>
+                    <i className="devicon-javascript-plain colored"></i>
+                  </Icons>
                   <ParagraphWrapper color="white">
                     <p>Javascript</p>
                   </ParagraphWrapper>
                 </div>
                 <div>
-                  <Icons alt="icons" src={react}></Icons>
+                  <Icons>
+                    <i className="devicon-react-original colored"></i>
+                  </Icons>
                   <ParagraphWrapper color="white">
                     <p>React</p>
                   </ParagraphWrapper>
                 </div>
                 <div>
-                  <Icons alt="icons" src={redux}></Icons>
+                  <Icons>
+                    <i className="devicon-redux-original"></i>
+                  </Icons>
                   <ParagraphWrapper color="white">
                     <p>Redux</p>
                   </ParagraphWrapper>
                 </div>
+                <div>
+                  <Icons>
+                    <i className="devicon-nodejs-plain"></i>
+                  </Icons>
+                  <ParagraphWrapper color="white">
+                    <p>Node</p>
+                  </ParagraphWrapper>
+                </div>
+                <div>
+                  <Icons>
+                    <i className="devicon-express-original"></i>
+                  </Icons>
+                  <ParagraphWrapper color="white">
+                    <p>Express</p>
+                  </ParagraphWrapper>
+                </div>
+                <div>
+                  <Icons>
+                    <i className="devicon-mongodb-plain colored"></i>
+                  </Icons>
+                  <ParagraphWrapper color="white">
+                    <p>MongoDB</p>
+                  </ParagraphWrapper>
+                </div>
+                <div>
+                  <Icons>
+                    <i className="devicon-redis-plain colored"></i>
+                  </Icons>
+                  <ParagraphWrapper color="white">
+                    <p>Redis</p>
+                  </ParagraphWrapper>
+                </div>
               </IconHolder>
-            </div>
-            <div>
-              <div>
-                <MainHeadingWrapper size="31px">
-                  <h1>Back End</h1>
-                </MainHeadingWrapper>
-                <IconHolder>
-                  <div>
-                    <Icons alt="icons" src={node}></Icons>
-                    <ParagraphWrapper color="white">
-                      <p>Node</p>
-                    </ParagraphWrapper>
-                  </div>
-                  <div>
-                    <Icons alt="icons" src={express}></Icons>
-                    <ParagraphWrapper color="white">
-                      <p>Express</p>
-                    </ParagraphWrapper>
-                  </div>
-                  <div>
-                    <Icons alt="icons" src={mongodb}></Icons>
-                    <ParagraphWrapper color="white">
-                      <p>MongoDB</p>
-                    </ParagraphWrapper>
-                  </div>
-                  <div>
-                    <Icons alt="icons" src={redis}></Icons>
-                    <ParagraphWrapper color="white">
-                      <p>Redis</p>
-                    </ParagraphWrapper>
-                  </div>
-                </IconHolder>
-              </div>
             </div>
           </div>
 
@@ -317,37 +358,102 @@ function Slide() {
           <div>
             <div>
               <MainHeadingWrapper size="31px">
+                <h1>Soft skills</h1>
+              </MainHeadingWrapper>
+              <IconHolder>
+                <div>
+                  <Icons>
+                    <i className="fas fa-chevron-circle-right"></i>
+                  </Icons>
+                  <ParagraphWrapper color="white">
+                    <p>Problem Solving</p>
+                  </ParagraphWrapper>
+                </div>
+                <div>
+                  <Icons>
+                    <i className="fas fa-chevron-circle-right"></i>
+                  </Icons>
+                  <ParagraphWrapper color="white">
+                    <p>Teamwork</p>
+                  </ParagraphWrapper>
+                </div>
+                <div>
+                  <Icons>
+                    <i className="fas fa-chevron-circle-right"></i>
+                  </Icons>
+                  <ParagraphWrapper color="white">
+                    <p>Communication</p>
+                  </ParagraphWrapper>
+                </div>
+                <div>
+                  <Icons>
+                    <i className="fas fa-chevron-circle-right"></i>
+                  </Icons>
+                  <ParagraphWrapper color="white">
+                    <p>Empathy</p>
+                  </ParagraphWrapper>
+                </div>
+                <div>
+                  <Icons>
+                    <i className="fas fa-chevron-circle-right"></i>
+                  </Icons>
+                  <ParagraphWrapper color="white">
+                    <p>Creativity</p>
+                  </ParagraphWrapper>
+                </div>
+                <div>
+                  <Icons>
+                    <i className="fas fa-chevron-circle-right"></i>
+                  </Icons>
+                  <ParagraphWrapper color="white">
+                    <p>Time Management</p>
+                  </ParagraphWrapper>
+                </div>
+              </IconHolder>
+            </div>
+            <div>
+              <MainHeadingWrapper size="31px">
                 <h1>Other Tools</h1>
               </MainHeadingWrapper>
               <IconHolder>
                 <div>
-                  <Icons alt="icons" src={git}></Icons>
+                  <Icons>
+                    <i className="devicon-git-plain colored"></i>
+                  </Icons>
                   <ParagraphWrapper color="white">
                     <p>Git</p>
                   </ParagraphWrapper>
                 </div>
                 <div>
-                  <Icons alt="icons" src={vscode}></Icons>
+                  <Icons>
+                    <i className="devicon-visualstudio-plain colored"></i>
+                  </Icons>
                   <ParagraphWrapper color="white">
-                    <p>Visual Studio Code</p>
+                    <p>VS Code</p>
                   </ParagraphWrapper>
                 </div>
                 <div>
-                  <Icons alt="icons" src={heroku}></Icons>
+                  <Icons>
+                    <i className="devicon-heroku-original colored"></i>
+                  </Icons>
                   <ParagraphWrapper color="white">
                     <p>Heroku</p>
                   </ParagraphWrapper>
                 </div>
                 <div>
-                  <Icons alt="icons" src={slack}></Icons>
+                  <Icons>
+                    <i className="devicon-slack-plain"></i>
+                  </Icons>
                   <ParagraphWrapper color="white">
                     <p>Slack</p>
                   </ParagraphWrapper>
                 </div>
                 <div>
-                  <Icons alt="icons" src={notion}></Icons>
+                  <Icons>
+                    <i class="devicon-wordpress-plain"></i>
+                  </Icons>
                   <ParagraphWrapper color="white">
-                    <p>Notion</p>
+                    <p>Wordpress</p>
                   </ParagraphWrapper>
                 </div>
               </IconHolder>
@@ -355,12 +461,12 @@ function Slide() {
           </div>
         </SlideSectionOne>
         <SectionWrapper>
-          <BridgeOne backgroundColor="#e9e9e9">
-            <MainHeadingWrapper color="black">
+          <BridgeOne color="white" backgroundColor=" #120218">
+            <MainHeadingWrapper color="white">
               <h1>Education</h1>
               <div></div>
             </MainHeadingWrapper>
-            <ParagraphWrapper>
+            <ParagraphWrapper color="white">
               <p>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 Voluptatem officiis voluptates perferendis incidunt
@@ -379,16 +485,16 @@ function Slide() {
               </p>
             </ParagraphWrapper>
           </BridgeOne>
-          <SlideSectionOne paddingTop="20.3%" backgroundColor="#e9e9e9">
+          <SlideSectionOne paddingTop="500px" backgroundColor=" #120218">
             <div>
-              <SubHeadingWrapper color="black">
+              <SubHeadingWrapper color="white">
                 <h4>Time-Line</h4>
               </SubHeadingWrapper>
               <EducationTimeline></EducationTimeline>
             </div>
             <div></div>
             <div>
-              <SubHeadingWrapper color="black">
+              <SubHeadingWrapper color="white">
                 <h4>Internships</h4>
               </SubHeadingWrapper>
               <InternshipTimeline></InternshipTimeline>
@@ -404,7 +510,7 @@ function Slide() {
             <EnvelopeBottom></EnvelopeBottom>
             <Envelope>
               <ResumeAction>
-                <ResumeButton color="#28527A" backgroundColor="white">
+                <ResumeButton color="#25323F" backgroundColor="white">
                   <i className="fas fa-download">
                     <a href={envelope} download>
                       <span> Download</span>
@@ -414,7 +520,7 @@ function Slide() {
                 <ResumeButton
                   onClick={() => setMailModal((prev) => !prev)}
                   color="white"
-                  backgroundColor="#28527A"
+                  backgroundColor="#25323F"
                 >
                   <i className="fas fa-envelope">
                     <span>Mail to yourself</span>

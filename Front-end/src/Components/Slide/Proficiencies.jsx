@@ -7,6 +7,11 @@ import frontEnd from "../Animations/building.json";
 import backEnd from "../Animations/backend.json";
 import dataStructure from "../Animations/dataStructure.json";
 
+const ProficienciesWrapper = styled.div`
+  //background-color: #25323f;
+  /* background-color: #252934; */
+`;
+
 const SlideStack = styled.div`
   min-height: 40vh;
   width: 100%;
@@ -16,7 +21,7 @@ const SlideStack = styled.div`
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  border-bottom: 1px solid #e4dede;
+
   > div {
     width: 200px;
     height: 180px;
@@ -61,7 +66,7 @@ const dataStructureOptions = {
 
 function Proficiencies() {
   return (
-    <>
+    <ProficienciesWrapper>
       <MainHeadingWrapper>
         <h1>Proficiencies</h1>
         <div></div>
@@ -92,7 +97,7 @@ function Proficiencies() {
           </SubHeadingWrapper>
         </div>
       </SlideStack>
-    </>
+    </ProficienciesWrapper>
   );
 }
 

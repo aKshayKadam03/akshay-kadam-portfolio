@@ -3,9 +3,11 @@ const app = express();
 const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
 const path = require("path");
+const cors = require("cors");
 require("dotenv").config();
 
 app.use(express.json());
+app.use(cors());
 
 const oAuth2Client = new google.auth.OAuth2(
   process.env.CLIENT_ID,
@@ -15,6 +17,7 @@ const oAuth2Client = new google.auth.OAuth2(
 oAuth2Client.setCredentials({ refresh_token: process.env.REFRESH });
 
 app.post("/mail", async (req, res) => {
+  console.log(req.body.mail);
   send(req.body.mail);
   return res.status(200).json({ status: "Success" });
 });
