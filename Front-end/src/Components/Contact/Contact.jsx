@@ -3,7 +3,8 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   min-height: 50vh;
-  background-color: #e9e9e9;
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.fontColor};
 `;
 
 function Contact() {

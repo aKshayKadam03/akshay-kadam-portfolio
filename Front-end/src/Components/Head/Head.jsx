@@ -24,26 +24,14 @@ const scrollOptions = {
   },
 };
 
+const Wrapper = styled.div`
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.fontColor};
+`;
 const Header = styled.div`
-  /* background-image: linear-gradient(
-    -225deg,
-    #174cee 0%,
-    #1e7aa5 48%,
-    #313979 100%
-  ); */
-  background-image: linear-gradient(
-    to left bottom,
-    #250730,
-    #1e0828,
-    #18081f,
-    #110716,
-    #070509
-  );
   height: 100vh;
   position: relative;
 `;
-
-const Wrapper = styled.div``;
 
 const HeaderContent = styled.div`
   width: 100%;
@@ -75,11 +63,14 @@ const Scroller = styled.div`
   }
 `;
 
-function Head() {
+function Head({ currentTheme, themeToggler }) {
   return (
     <Wrapper id="home">
       <Header>
-        <Navigation></Navigation>
+        <Navigation
+          currentTheme={currentTheme}
+          themeToggler={themeToggler}
+        ></Navigation>
         <HeaderContent>
           <Heading>
             <MainHeadingWrapper color="white">

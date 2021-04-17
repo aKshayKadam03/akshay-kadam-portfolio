@@ -52,6 +52,7 @@ const ProjectDetailWrapper = styled.div`
   margin-bottom: 10px;
   display: ${(props) => (props.status ? "inline" : "none")};
   animation: ${entranceAnimation} 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+
   > div:nth-child(1) {
     display: flex;
     align-items: center;
@@ -82,10 +83,10 @@ const CloseButton = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   font-size: 26px;
-  background-color: white;
+  background-color: ${(props) => props.theme.fontColor};
   padding: 0 5px;
   border-radius: 25px;
-  color: #390e47;
+  color: ${(props) => props.theme.body};
   font-weight: 600;
 
   > div {
@@ -147,9 +148,18 @@ const ProjectIcon = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #ece8e8;
-  border-radius: 30px;
+  border-radius: 5px;
   padding: 0 5px;
-  > img {
+  text-transform: capitalize;
+  font-weight: 500;
+  > div {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  > div > img {
     height: 30px;
     margin: 10px;
   }
@@ -234,13 +244,15 @@ function ProjectDetail({
           </div>
 
           <div>
+            <ParagraphWrapper color="yellow">
+              <p>Tech Stack :</p>
+            </ParagraphWrapper>
             <ProjectIcon>
-              <SubHeadingWrapper color="black">
-                <h4>Tech Stack</h4>
-              </SubHeadingWrapper>
-
               {techStack?.map((item) => (
-                <img src={techStackIcons[item]} alt="icon" />
+                <div>
+                  <img src={techStackIcons[item]} alt="icon" />
+                  <span>{item}</span>
+                </div>
               ))}
             </ProjectIcon>
           </div>
@@ -251,7 +263,7 @@ function ProjectDetail({
             <ul>
               {responsibilities?.map((item) => (
                 <ParagraphWrapper color="white">
-                  <p>{item}</p>
+                  <p>• {item}</p>
                 </ParagraphWrapper>
               ))}
             </ul>

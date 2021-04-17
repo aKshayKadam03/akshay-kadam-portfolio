@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Proficiencies from "./Proficiencies";
 import axios from "axios";
-import { EducationTimeline, InternshipTimeline } from "./Timeline";
+
 import {
   MainHeadingWrapper,
   SubHeadingWrapper,
@@ -17,18 +17,11 @@ import resumeTwo from "../Images/resumeTwo.png";
 import resumeFinal from "../Images/resumeFinal.png";
 
 import Projects from "./Projects/Projects";
+import TimeLine from "./TimeLine/TimeLine";
 
 const SliderWrapper = styled.div`
-  background-image: linear-gradient(
-    to left bottom,
-    #250730,
-    #1e0828,
-    #18081f,
-    #110716,
-    #070509
-  );
-
-  color: #f6eeee;
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.fontColor};
 `;
 
 const SlideMain = styled.div`
@@ -61,7 +54,7 @@ const SlideSectionOne = styled.div`
   min-height: 100vh;
   display: flex;
   justify-content: space-between;
-  background-color: ${(props) => props.backgroundColor};
+  //background-color: ${(props) => props.backgroundColor};
   padding-top: ${(props) => props.paddingTop};
   padding-bottom: 100px;
 
@@ -149,10 +142,10 @@ const ResumeAction = styled.div`
 
 const ResumeButton = styled.button`
   font-size: 18px;
-  color: #e6e6e6;
+  //color: #e6e6e6;
   padding: 5px 25px;
-  background-color: ${(props) => props.backgroundColor};
-  color: ${(props) => props.color};
+  //background-color: ${(props) => props.backgroundColor};
+  //color: ${(props) => props.color};
   border: 1px solid ${(props) => props.color};
   border-radius: 5px;
   margin: 10px;
@@ -179,7 +172,7 @@ const BridgeOne = styled.div`
   left: 0;
   width: 100%;
   margin: 0 auto;
-  background-color: ${(props) => props.backgroundColor};
+  //background-color: ${(props) => props.backgroundColor};
 
   min-height: 400px;
   z-index: 99;
@@ -222,7 +215,7 @@ const IconHolder = styled.div`
     justify-content: flex-start;
     margin: 0px auto;
     padding: 5px 15px;
-    color: #f8f8f8;
+    color: ${(props) => props.theme.fontColor};
     font-size: 18px;
 
     > div:nth-child(2) {
@@ -461,45 +454,7 @@ function Slide() {
           </div>
         </SlideSectionOne>
         <SectionWrapper>
-          <BridgeOne color="white" backgroundColor=" #120218">
-            <MainHeadingWrapper color="white">
-              <h1>Education</h1>
-              <div></div>
-            </MainHeadingWrapper>
-            <ParagraphWrapper color="white">
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Voluptatem officiis voluptates perferendis incidunt
-                voluptatibus, totam, perspiciatis cupiditate et distinctio
-                aliquam excepturi quidem! Vero id distinctio, voluptate aperiam
-                dolores quod sequi dicta eos! Iusto ut laborum laudantium quod
-                temporibus ducimus sit soluta praesentium? Reiciendis odio
-                voluptates cum sequi, minima, alias consequuntur fugiat
-                explicabo in temporibus est deserunt velit quasi quod quo iure,
-                dolores accusamus. Pariatur dolorem placeat officia eum
-                distinctio sit? Velit sit laudantium possimus architecto. Sit
-                earum corrupti suscipit inventore voluptas fuga? Tempore alias
-                nam, labore temporibus quasi deserunt modi quia veritatis
-                doloremque corporis magnam sed iure cumque exercitationem
-                deleniti.
-              </p>
-            </ParagraphWrapper>
-          </BridgeOne>
-          <SlideSectionOne paddingTop="500px" backgroundColor=" #120218">
-            <div>
-              <SubHeadingWrapper color="white">
-                <h4>Time-Line</h4>
-              </SubHeadingWrapper>
-              <EducationTimeline></EducationTimeline>
-            </div>
-            <div></div>
-            <div>
-              <SubHeadingWrapper color="white">
-                <h4>Internships</h4>
-              </SubHeadingWrapper>
-              <InternshipTimeline></InternshipTimeline>
-            </div>
-          </SlideSectionOne>
+          <TimeLine></TimeLine>
         </SectionWrapper>
         <SectionWrapper>
           <Projects></Projects>

@@ -8,8 +8,8 @@ import backEnd from "../Animations/backend.json";
 import dataStructure from "../Animations/dataStructure.json";
 
 const ProficienciesWrapper = styled.div`
-  //background-color: #25323f;
-  /* background-color: #252934; */
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.fontColor};
 `;
 
 const SlideStack = styled.div`

@@ -8,7 +8,8 @@ export const MainHeadingWrapper = styled.div`
     font-size: ${(props) => (props.size ? props.size : "3rem")};
     width: fit-content;
     margin: 0 auto;
-    color: ${(props) => props.color};
+    /* background-color: ${(props) => props.theme.body};
+    color: ${(props) => props.theme.fontColor}; */
     font-weight: 600;
   }
   > div {
@@ -21,10 +22,9 @@ export const MainHeadingWrapper = styled.div`
 
 export const SubHeadingWrapper = styled.div`
   > h4 {
-    font-size: 1.5rem;
+    font-size: ${(props) => (props.fontSize ? props.fontSize : "30px")};
     margin: 0 auto;
     width: fit-content;
-    color: ${(props) => props.color};
     font-weight: 600;
   }
 `;
@@ -34,7 +34,8 @@ export const ParagraphWrapper = styled.div`
     font-size: 1.2 rem;
     line-height: 1.3;
     letter-spacing: 0.3ch;
-    color: ${(props) => (props.color ? props.color : "#141313")};
+    /* background-color: ${(props) => props.theme.body};
+    color: ${(props) => props.theme.fontColor}; */
     font-weight: 400;
   }
 `;

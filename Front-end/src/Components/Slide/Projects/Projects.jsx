@@ -13,7 +13,8 @@ const SlideSectionOne = styled.div`
   min-height: 200vh;
   display: flex;
   justify-content: space-between;
-  background-color: ${(props) => props.backgroundColor};
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.fontColor};
   padding-top: ${(props) => props.paddingTop};
 
   flex-wrap: wrap;
@@ -34,7 +35,8 @@ const BridgeTwo = styled.div`
   left: 0;
   width: 100%;
   margin: 0 auto;
-  background-color: ${(props) => props.backgroundColor};
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.fontColor};
   min-height: 400px;
   z-index: 99;
   display: flex;

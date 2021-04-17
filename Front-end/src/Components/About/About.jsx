@@ -10,8 +10,10 @@ import {
 
 const Wrapper = styled.div`
   width: 100%;
-  margin: 60px auto 0px;
+  margin: 0px auto;
   min-height: 50vh;
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.fontColor};
 `;
 
 const Content = styled.div`
@@ -19,7 +21,7 @@ const Content = styled.div`
   justify-content: center;
   align-items: center;
   width: 80%;
-  margin: 50px auto;
+  margin: 0px auto;
   flex-wrap: wrap;
 
   > div:nth-child(1) {
@@ -32,7 +34,7 @@ const Profile = styled.div`
   width: 350px;
   height: 350px;
   background-size: cover;
-  background-color: #bdb4b4;
+  background-color: #ccc9c9;
   margin: 50px auto;
   clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
 `;
@@ -59,7 +61,7 @@ const Social = styled.div`
 
 function About() {
   return (
-    <Wrapper id="about">
+    <Wrapper backgroundColor="#d1cccc" id="about">
       <MainHeadingWrapper>
         <h1>About Me</h1>
         <div></div>

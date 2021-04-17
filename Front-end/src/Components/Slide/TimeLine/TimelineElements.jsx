@@ -44,25 +44,25 @@ function EducationTimelineCard({ time, school, course, details }) {
       className="vertical-timeline-element--work"
       contentStyle={{
         textAlign: "left",
-        background: "rgb(255, 255, 255)",
-        color: "#0e0202",
+        background: "#ffffff",
+        color: "#1f1b1b",
       }}
-      contentArrowStyle={{ borderRight: "7px solid  rgb(255, 255, 255)" }}
+      contentArrowStyle={{ borderRight: "7px solid  #ffffff" }}
       date={time}
       iconStyle={{
-        background: "rgb(237, 240, 241)",
+        background: "rgb(3, 47, 61)",
         color: "#1a1111",
         transform: "scale(0.4)",
       }}
     >
       <h3
-        style={{ color: "#08040a" }}
+        style={{ color: "#000000" }}
         className="vertical-timeline-element-title"
       >
         {course}
       </h3>
       <h4
-        style={{ color: "#463535" }}
+        style={{ color: "#393e46" }}
         className="vertical-timeline-element-subtitle"
       >
         {school}
@@ -113,25 +113,25 @@ function InternshipTimelineCard({ time, position, company, details }) {
       className="vertical-timeline-element--work"
       contentStyle={{
         textAlign: "left",
-        background: "rgb(255, 255, 255)",
-        color: "#161218",
+        background: "#ffffff",
+        color: "#1f1b1b",
       }}
-      contentArrowStyle={{ borderRight: "7px solid  rgb(255, 255, 255)" }}
+      contentArrowStyle={{ borderRight: "7px solid  #ffffff" }}
       date={time}
       iconStyle={{
-        background: "rgb(237, 240, 241)",
-        color: "#fff",
+        background: "rgb(3, 47, 61)",
+        color: "#1a1111",
         transform: "scale(0.4)",
       }}
     >
       <h3
-        style={{ color: "#0a070c" }}
+        style={{ color: "#000000" }}
         className="vertical-timeline-element-title"
       >
         {position}
       </h3>
       <h4
-        style={{ color: "#463535" }}
+        style={{ color: "#393e46" }}
         className="vertical-timeline-element-subtitle"
       >
         {company}

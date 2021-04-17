@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const FooterWrapper = styled.div`
   min-height: 15vh;
-  background-color: #25323f;
-  color: white;
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.fontColor};
 `;
 
 function Footer() {
