@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import { ParagraphWrapper, SubHeadingWrapper } from "../Elements/Elements";
 
 const FooterWrapper = styled.div`
-  min-height: 15vh;
+  border-top: 1px solid white;
+  min-height: 5vh;
+  display: grid;
+  place-items: center;
   background-color: ${(props) => props.theme.body};
   color: ${(props) => props.theme.fontColor};
 `;
@@ -10,7 +14,7 @@ const FooterWrapper = styled.div`
 function Footer() {
   return (
     <FooterWrapper id="contact">
-      <h1>Footer</h1>
+      <p> © therealdrtroll</p>
     </FooterWrapper>
   );
 }

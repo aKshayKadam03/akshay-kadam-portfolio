@@ -24,7 +24,6 @@ const SlideSectionOne = styled.div`
     justify-content: space-around;
     margin: 0 auto;
     width: 30%;
-    min-width: 350px;
     flex-wrap: wrap;
   }
 `;
@@ -37,7 +36,8 @@ const BridgeTwo = styled.div`
   margin: 0 auto;
   background-color: ${(props) => props.theme.body};
   color: ${(props) => props.theme.fontColor};
-  min-height: 400px;
+
+  /* min-height: 400px; */
   z-index: 99;
   display: flex;
   flex-direction: column;
@@ -150,12 +150,11 @@ function Projects() {
   let [currentProject, setCurrentProject] = React.useState({});
   return (
     <>
-      <BridgeTwo backgroundColor="#0f0313">
-        <MainHeadingWrapper color="white">
+      <BridgeTwo>
+        <MainHeadingWrapper>
           <h1>Projects</h1>
           <div></div>
         </MainHeadingWrapper>
-
         <div>
           {projects.map((project) => (
             <ProjectCard
@@ -172,10 +171,7 @@ function Projects() {
           setPanel={setPanel}
         ></ProjectDetail>
       </BridgeTwo>
-      <SlideSectionOne paddingTop="20.3%" backgroundColor="#0f0313">
-        <div>First</div>
-        <div>Second</div>
-      </SlideSectionOne>
+      <SlideSectionOne paddingTop="20.3%"></SlideSectionOne>
     </>
   );
 }

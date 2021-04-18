@@ -54,10 +54,8 @@ const SlideSectionOne = styled.div`
   min-height: 100vh;
   display: flex;
   justify-content: space-between;
-  //background-color: ${(props) => props.backgroundColor};
   padding-top: ${(props) => props.paddingTop};
   padding-bottom: 100px;
-
   > div {
     display: flex;
     flex-direction: column;
@@ -74,7 +72,7 @@ const SlideSectionOne = styled.div`
     flex-direction: column;
     padding-top: 100px;
     > div {
-      min-width: 410px;
+      min-width: 300px;
     }
   }
   @media (max-width: 1100px) {
@@ -99,8 +97,10 @@ const Resume = styled.div`
   border-radius: 5px;
   padding-bottom: 40px;
   margin: 40px auto;
+  filter: opacity(95%);
+
   @media (max-width: 750px) {
-    max-width: 420px;
+    width: 87%;
   }
 `;
 
@@ -109,7 +109,6 @@ const Envelope = styled.div`
   background-size: cover;
   height: 600px;
   width: 100%;
-  //margin: 0px auto;
   max-width: 550px;
   z-index: 10;
   border-radius: 5px;
@@ -118,6 +117,10 @@ const Envelope = styled.div`
   position: relative;
   margin-bottom: 40px;
   padding-bottom: 40px;
+  @media (max-width: 750px) {
+    width: 90%;
+    margin: 0 auto;
+  }
 `;
 
 const EnvelopeBottom = styled.div`
@@ -130,6 +133,11 @@ const EnvelopeBottom = styled.div`
   margin: 0px auto;
   margin-bottom: -25px;
   max-width: 550px;
+  @media (max-width: 750px) {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: -40px;
+  }
 `;
 
 const ResumeAction = styled.div`
@@ -137,16 +145,12 @@ const ResumeAction = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
 `;
 
 const ResumeButton = styled.button`
   font-size: 18px;
-  //color: #e6e6e6;
   padding: 5px 25px;
-  //background-color: ${(props) => props.backgroundColor};
-  //color: ${(props) => props.color};
-  border: 1px solid ${(props) => props.color};
+  border: none;
   border-radius: 5px;
   margin: 10px;
 
@@ -164,40 +168,6 @@ const ResumeButton = styled.button`
 const SectionWrapper = styled.div`
   width: 100%;
   position: relative;
-`;
-
-const BridgeOne = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  margin: 0 auto;
-  //background-color: ${(props) => props.backgroundColor};
-
-  min-height: 400px;
-  z-index: 99;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-width: 400px;
-
-  :after {
-    content: "";
-    width: 50%;
-    border-bottom: 2px solid #440f52;
-    border-radius: 10px;
-    margin: 30px auto;
-    margin-bottom: -30px;
-    box-shadow: -8px 8px 22px #b894b9;
-  }
-  p {
-    width: 90%;
-    max-width: 1200px;
-    margin: 30px auto;
-  }
-  @media (max-width: 750px) {
-    position: relative;
-  }
 `;
 
 const IconHolder = styled.div`
@@ -232,6 +202,28 @@ const Icons = styled.div`
   filter: invert(0%);
 `;
 
+const MailModal = styled.div`
+  transform: ${(props) => (props.status ? "scaleY(1)" : "scaleY(0)")};
+  transition: all 500ms ease;
+
+  input {
+    border: none;
+    font-size: 19px;
+    outline: none;
+    border-bottom: 2px solid black;
+    transition: all 500ms ease;
+  }
+  input:focus {
+    border-bottom: 2px solid #d61a1a;
+  }
+
+  button {
+    cursor: pointer;
+    color: white;
+    background-color: #d61a1a;
+  }
+`;
+
 function Slide() {
   const [currentImage, setCurrentImage] = React.useState(resumeOne);
   const [email, setEmail] = React.useState("");
@@ -262,197 +254,199 @@ function Slide() {
 
   return (
     <SliderWrapper>
-      <Proficiencies></Proficiencies>
+      {/* <Proficiencies></Proficiencies> */}
       <SlideMain>
-        <SlideSectionOne>
-          <div>
+        <SectionWrapper>
+          <SlideSectionOne>
             <div>
-              <MainHeadingWrapper size="31px">
-                <h1>Technical Skills</h1>
-              </MainHeadingWrapper>
-              <IconHolder>
-                <div>
-                  <Icons>
-                    <i className="devicon-html5-plain colored"></i>
-                  </Icons>
-                  <ParagraphWrapper color="white">
-                    <p>HTML</p>
-                  </ParagraphWrapper>
-                </div>
-                <div>
-                  <Icons>
-                    <i className="devicon-css3-plain colored"></i>
-                  </Icons>
-                  <ParagraphWrapper color="white">
-                    <p>CSS</p>
-                  </ParagraphWrapper>
-                </div>
-                <div>
-                  <Icons>
-                    <i className="devicon-javascript-plain colored"></i>
-                  </Icons>
-                  <ParagraphWrapper color="white">
-                    <p>Javascript</p>
-                  </ParagraphWrapper>
-                </div>
-                <div>
-                  <Icons>
-                    <i className="devicon-react-original colored"></i>
-                  </Icons>
-                  <ParagraphWrapper color="white">
-                    <p>React</p>
-                  </ParagraphWrapper>
-                </div>
-                <div>
-                  <Icons>
-                    <i className="devicon-redux-original"></i>
-                  </Icons>
-                  <ParagraphWrapper color="white">
-                    <p>Redux</p>
-                  </ParagraphWrapper>
-                </div>
-                <div>
-                  <Icons>
-                    <i className="devicon-nodejs-plain"></i>
-                  </Icons>
-                  <ParagraphWrapper color="white">
-                    <p>Node</p>
-                  </ParagraphWrapper>
-                </div>
-                <div>
-                  <Icons>
-                    <i className="devicon-express-original"></i>
-                  </Icons>
-                  <ParagraphWrapper color="white">
-                    <p>Express</p>
-                  </ParagraphWrapper>
-                </div>
-                <div>
-                  <Icons>
-                    <i className="devicon-mongodb-plain colored"></i>
-                  </Icons>
-                  <ParagraphWrapper color="white">
-                    <p>MongoDB</p>
-                  </ParagraphWrapper>
-                </div>
-                <div>
-                  <Icons>
-                    <i className="devicon-redis-plain colored"></i>
-                  </Icons>
-                  <ParagraphWrapper color="white">
-                    <p>Redis</p>
-                  </ParagraphWrapper>
-                </div>
-              </IconHolder>
+              <div>
+                <MainHeadingWrapper size="31px">
+                  <h1>Technical Skills</h1>
+                </MainHeadingWrapper>
+                <IconHolder>
+                  <div>
+                    <Icons>
+                      <i className="devicon-html5-plain colored"></i>
+                    </Icons>
+                    <ParagraphWrapper color="white">
+                      <p>HTML</p>
+                    </ParagraphWrapper>
+                  </div>
+                  <div>
+                    <Icons>
+                      <i className="devicon-css3-plain colored"></i>
+                    </Icons>
+                    <ParagraphWrapper color="white">
+                      <p>CSS</p>
+                    </ParagraphWrapper>
+                  </div>
+                  <div>
+                    <Icons>
+                      <i className="devicon-javascript-plain colored"></i>
+                    </Icons>
+                    <ParagraphWrapper color="white">
+                      <p>Javascript</p>
+                    </ParagraphWrapper>
+                  </div>
+                  <div>
+                    <Icons>
+                      <i className="devicon-react-original colored"></i>
+                    </Icons>
+                    <ParagraphWrapper color="white">
+                      <p>React</p>
+                    </ParagraphWrapper>
+                  </div>
+                  <div>
+                    <Icons>
+                      <i className="devicon-redux-original"></i>
+                    </Icons>
+                    <ParagraphWrapper color="white">
+                      <p>Redux</p>
+                    </ParagraphWrapper>
+                  </div>
+                  <div>
+                    <Icons>
+                      <i className="devicon-nodejs-plain"></i>
+                    </Icons>
+                    <ParagraphWrapper color="white">
+                      <p>Node</p>
+                    </ParagraphWrapper>
+                  </div>
+                  <div>
+                    <Icons>
+                      <i className="devicon-express-original"></i>
+                    </Icons>
+                    <ParagraphWrapper color="white">
+                      <p>Express</p>
+                    </ParagraphWrapper>
+                  </div>
+                  <div>
+                    <Icons>
+                      <i className="devicon-mongodb-plain colored"></i>
+                    </Icons>
+                    <ParagraphWrapper color="white">
+                      <p>MongoDB</p>
+                    </ParagraphWrapper>
+                  </div>
+                  <div>
+                    <Icons>
+                      <i className="devicon-redis-plain colored"></i>
+                    </Icons>
+                    <ParagraphWrapper color="white">
+                      <p>Redis</p>
+                    </ParagraphWrapper>
+                  </div>
+                </IconHolder>
+              </div>
             </div>
-          </div>
 
-          <div className="gap div"></div>
-          <div>
+            <div className="gap div"></div>
             <div>
-              <MainHeadingWrapper size="31px">
-                <h1>Soft skills</h1>
-              </MainHeadingWrapper>
-              <IconHolder>
-                <div>
-                  <Icons>
-                    <i className="fas fa-chevron-circle-right"></i>
-                  </Icons>
-                  <ParagraphWrapper color="white">
-                    <p>Problem Solving</p>
-                  </ParagraphWrapper>
-                </div>
-                <div>
-                  <Icons>
-                    <i className="fas fa-chevron-circle-right"></i>
-                  </Icons>
-                  <ParagraphWrapper color="white">
-                    <p>Teamwork</p>
-                  </ParagraphWrapper>
-                </div>
-                <div>
-                  <Icons>
-                    <i className="fas fa-chevron-circle-right"></i>
-                  </Icons>
-                  <ParagraphWrapper color="white">
-                    <p>Communication</p>
-                  </ParagraphWrapper>
-                </div>
-                <div>
-                  <Icons>
-                    <i className="fas fa-chevron-circle-right"></i>
-                  </Icons>
-                  <ParagraphWrapper color="white">
-                    <p>Empathy</p>
-                  </ParagraphWrapper>
-                </div>
-                <div>
-                  <Icons>
-                    <i className="fas fa-chevron-circle-right"></i>
-                  </Icons>
-                  <ParagraphWrapper color="white">
-                    <p>Creativity</p>
-                  </ParagraphWrapper>
-                </div>
-                <div>
-                  <Icons>
-                    <i className="fas fa-chevron-circle-right"></i>
-                  </Icons>
-                  <ParagraphWrapper color="white">
-                    <p>Time Management</p>
-                  </ParagraphWrapper>
-                </div>
-              </IconHolder>
+              <div>
+                <MainHeadingWrapper size="31px">
+                  <h1>Soft skills</h1>
+                </MainHeadingWrapper>
+                <IconHolder>
+                  <div>
+                    <Icons>
+                      <i className="fas fa-chevron-circle-right"></i>
+                    </Icons>
+                    <ParagraphWrapper color="white">
+                      <p>Problem Solving</p>
+                    </ParagraphWrapper>
+                  </div>
+                  <div>
+                    <Icons>
+                      <i className="fas fa-chevron-circle-right"></i>
+                    </Icons>
+                    <ParagraphWrapper color="white">
+                      <p>Teamwork</p>
+                    </ParagraphWrapper>
+                  </div>
+                  <div>
+                    <Icons>
+                      <i className="fas fa-chevron-circle-right"></i>
+                    </Icons>
+                    <ParagraphWrapper color="white">
+                      <p>Communication</p>
+                    </ParagraphWrapper>
+                  </div>
+                  <div>
+                    <Icons>
+                      <i className="fas fa-chevron-circle-right"></i>
+                    </Icons>
+                    <ParagraphWrapper color="white">
+                      <p>Empathy</p>
+                    </ParagraphWrapper>
+                  </div>
+                  <div>
+                    <Icons>
+                      <i className="fas fa-chevron-circle-right"></i>
+                    </Icons>
+                    <ParagraphWrapper color="white">
+                      <p>Creativity</p>
+                    </ParagraphWrapper>
+                  </div>
+                  <div>
+                    <Icons>
+                      <i className="fas fa-chevron-circle-right"></i>
+                    </Icons>
+                    <ParagraphWrapper color="white">
+                      <p>Time Management</p>
+                    </ParagraphWrapper>
+                  </div>
+                </IconHolder>
+              </div>
+              <div>
+                <MainHeadingWrapper size="31px">
+                  <h1>Other Tools</h1>
+                </MainHeadingWrapper>
+                <IconHolder>
+                  <div>
+                    <Icons>
+                      <i className="devicon-git-plain colored"></i>
+                    </Icons>
+                    <ParagraphWrapper color="white">
+                      <p>Git</p>
+                    </ParagraphWrapper>
+                  </div>
+                  <div>
+                    <Icons>
+                      <i className="devicon-visualstudio-plain colored"></i>
+                    </Icons>
+                    <ParagraphWrapper color="white">
+                      <p>VS Code</p>
+                    </ParagraphWrapper>
+                  </div>
+                  <div>
+                    <Icons>
+                      <i className="devicon-heroku-original colored"></i>
+                    </Icons>
+                    <ParagraphWrapper color="white">
+                      <p>Heroku</p>
+                    </ParagraphWrapper>
+                  </div>
+                  <div>
+                    <Icons>
+                      <i className="devicon-slack-plain"></i>
+                    </Icons>
+                    <ParagraphWrapper color="white">
+                      <p>Slack</p>
+                    </ParagraphWrapper>
+                  </div>
+                  <div>
+                    <Icons>
+                      <i class="devicon-wordpress-plain"></i>
+                    </Icons>
+                    <ParagraphWrapper color="white">
+                      <p>Wordpress</p>
+                    </ParagraphWrapper>
+                  </div>
+                </IconHolder>
+              </div>
             </div>
-            <div>
-              <MainHeadingWrapper size="31px">
-                <h1>Other Tools</h1>
-              </MainHeadingWrapper>
-              <IconHolder>
-                <div>
-                  <Icons>
-                    <i className="devicon-git-plain colored"></i>
-                  </Icons>
-                  <ParagraphWrapper color="white">
-                    <p>Git</p>
-                  </ParagraphWrapper>
-                </div>
-                <div>
-                  <Icons>
-                    <i className="devicon-visualstudio-plain colored"></i>
-                  </Icons>
-                  <ParagraphWrapper color="white">
-                    <p>VS Code</p>
-                  </ParagraphWrapper>
-                </div>
-                <div>
-                  <Icons>
-                    <i className="devicon-heroku-original colored"></i>
-                  </Icons>
-                  <ParagraphWrapper color="white">
-                    <p>Heroku</p>
-                  </ParagraphWrapper>
-                </div>
-                <div>
-                  <Icons>
-                    <i className="devicon-slack-plain"></i>
-                  </Icons>
-                  <ParagraphWrapper color="white">
-                    <p>Slack</p>
-                  </ParagraphWrapper>
-                </div>
-                <div>
-                  <Icons>
-                    <i class="devicon-wordpress-plain"></i>
-                  </Icons>
-                  <ParagraphWrapper color="white">
-                    <p>Wordpress</p>
-                  </ParagraphWrapper>
-                </div>
-              </IconHolder>
-            </div>
-          </div>
-        </SlideSectionOne>
+          </SlideSectionOne>
+        </SectionWrapper>
         <SectionWrapper>
           <TimeLine></TimeLine>
         </SectionWrapper>
@@ -465,7 +459,7 @@ function Slide() {
             <EnvelopeBottom></EnvelopeBottom>
             <Envelope>
               <ResumeAction>
-                <ResumeButton color="#25323F" backgroundColor="white">
+                <ResumeButton>
                   <i className="fas fa-download">
                     <a href={envelope} download>
                       <span> Download</span>
@@ -482,16 +476,19 @@ function Slide() {
                   </i>
                 </ResumeButton>
               </ResumeAction>
-              {mailModal && (
+              <MailModal status={mailModal}>
                 <form onSubmit={onSubmitHandler}>
                   <input
                     value={email}
+                    type="email"
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Your email address"
                   />
-                  <button>Send</button>
+                  <ResumeButton>
+                    <i class="fas fa-paper-plane"></i>
+                  </ResumeButton>
                 </form>
-              )}
+              </MailModal>
             </Envelope>
           </div>
         </SlideCanal>

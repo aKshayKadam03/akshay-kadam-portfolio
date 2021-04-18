@@ -12,13 +12,13 @@ import Slide from "./Components/Slide/Slide";
 // #d8e3e7
 
 const LightTheme = {
-  body: "#f4f6ff",
+  body: "#400082",
   fontColor: "#000",
   secondary: "#e1f4f3",
 };
-
+//#151515
 const DarkTheme = {
-  body: "#151515",
+  body: "#000",
   fontColor: "#fff",
   secondary: "#0c0b0b",
 };
@@ -39,7 +39,6 @@ function App() {
     <ThemeProvider theme={themes[currentTheme]}>
       <div className="App">
         <ToTop></ToTop>
-
         <Head currentTheme={currentTheme} themeToggler={themeToggler}></Head>
         <About></About>
         <Slide></Slide>
@@ -51,19 +50,3 @@ function App() {
 }
 
 export default App;
-
-{
-  /* <ThemeProvider theme={currentTheme === "light" ? lightTheme : darkTheme}>
-<GlobalStyles>
-  <div className="App">
-    <ToTop></ToTop>
-    <Navigation themeToggler={themeToggler}></Navigation>
-    <Head></Head>
-    <About></About>
-    <Slide></Slide>
-    <Contact></Contact>
-    <Footer></Footer>
-  </div>
-</GlobalStyles>
-</ThemeProvider> */
-}

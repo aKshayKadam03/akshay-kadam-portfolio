@@ -5,21 +5,17 @@ const NavBar = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   height: 7vh;
   z-index: 1000;
   transition: all 300ms ease-out;
-  color: black;
+
   background-color: ${(props) => props.theme.body};
   color: ${(props) => props.theme.fontColor};
 `;
 
 const NavItem = styled.div`
   margin: 20px;
-
-  :hover {
-    border-bottom: 1px solid white;
-  }
   > a {
     text-decoration: none;
     font-size: 17px;
@@ -28,11 +24,17 @@ const NavItem = styled.div`
     font-family: ${(props) => props.theme.font};
     font-weight: 600;
   }
+  @media (max-width: 750px) {
+    margin: 9px;
+  }
 `;
 
 const Logo = styled.div`
   font-size: 40px;
   padding-left: 30px;
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const Grow = styled.div`
@@ -41,15 +43,8 @@ const Grow = styled.div`
     display: none;
   }
 `;
-const ThemeToggleButton = styled.button`
-  min-width: 100px;
-  font-size: 18px;
-  padding: 8px 15px;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-  background-color: ${(props) => props.theme.fontColor};
-  color: ${(props) => props.theme.body};
+const ThemeToggleButton = styled.div`
+  font-size: 30px;
 `;
 
 function Navigation({ themeToggler, currentTheme }) {
@@ -76,12 +71,15 @@ function Navigation({ themeToggler, currentTheme }) {
       </NavItem>
       <ThemeToggleButton onClick={themeToggler}>
         {currentTheme === "light" ? (
-          <i class="fas fa-moon"> Dark</i>
+          <i class="fas fa-moon"></i>
         ) : (
-          <i class="fas fa-sun"> Light</i>
+          //<i class="fas fa-moon"></i>
+          //<i style={{ color: "orange" }} class="fas fa-lightbulb"></i>
+          <i style={{ color: "orange" }} class="fas fa-cloud-sun"></i>
         )}
       </ThemeToggleButton>
       <NavItem></NavItem>
+      {/* <ThemeToggleButton onClick={themeToggler}></ThemeToggleButton> */}
     </NavBar>
   );
 }

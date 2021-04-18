@@ -11,9 +11,9 @@ const ProjectCardWrapper = styled.div`
   max-width: 400px;
   height: 400px;
   border-radius: 5px;
-  color: #d3d4d4;
+  color: #ffffff;
   margin: 20px;
-
+  border: 1px solid white;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -25,12 +25,12 @@ const ProjectCardWrapper = styled.div`
   place-content: center;
   :hover {
     transition: all 3000ms ease;
+    color: #ffffff;
     background: url(${(props) => props.backgroundImg});
-    background-repeat: no-repeat;
   }
   @media (max-width: 750px) {
     height: 100px;
-    min-width: 350px;
+    max-width: 300px;
   }
 `;
 

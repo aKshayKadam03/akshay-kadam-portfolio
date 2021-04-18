@@ -25,14 +25,14 @@ const SlideSectionOne = styled.div`
     min-width: 250px;
   }
   > div:nth-child(2) {
-    min-width: 500px;
+    min-width: 300px;
   }
 
   @media (max-width: 750px) {
     flex-direction: column;
     padding-top: 100px;
     > div {
-      min-width: 410px;
+      min-width: 300px;
     }
   }
   @media (max-width: 1100px) {
@@ -59,7 +59,6 @@ const BridgeOne = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-width: 400px;
 
   :after {
     content: "";

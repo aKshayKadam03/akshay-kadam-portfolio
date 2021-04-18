@@ -44,7 +44,6 @@ const entranceAnimation = keyframes`
 
 const ProjectDetailWrapper = styled.div`
   width: 80%;
-  min-width: 400px;
   border-radius: 5px;
   margin: 0 auto;
   min-height: 500px;
@@ -147,7 +146,7 @@ const ProjectIcon = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  background-color: #ece8e8;
+
   border-radius: 5px;
   padding: 0 5px;
   text-transform: capitalize;
