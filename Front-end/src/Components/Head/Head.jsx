@@ -4,6 +4,7 @@ import Navigation from "./Navigation";
 import Lottie from "react-lottie";
 import engineer from "../Animations/working.json";
 import scroll from "../Animations/scrollDown.json";
+
 import { MainHeadingWrapper, SubHeadingWrapper } from "../Elements/Elements";
 
 const defaultOptions = {
@@ -26,10 +27,11 @@ const scrollOptions = {
 
 const Wrapper = styled.div`
   background-color: ${(props) => props.theme.body};
+
   color: ${(props) => props.theme.fontColor};
 `;
 const Header = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
 `;
 

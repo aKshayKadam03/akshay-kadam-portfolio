@@ -40,22 +40,12 @@ const Profile = styled.div`
 `;
 
 const Social = styled.div`
-  > i {
+  margin-top: 20px;
+  a {
+    text-decoration: none;
+    color: ${(props) => props.theme.fontColor};
     font-size: 40px;
-    margin: 20px;
-  }
-  > i:nth-child(2) {
-    color: #0a66c2;
-  }
-  > i:nth-child(3) {
-    color: #252727;
-  }
-  > i:nth-child(4) {
-    color: #081835;
-  }
-  > i:hover {
-    color: #ece7e7;
-    transition: all 200ms ease-in;
+    margin: 30px;
   }
 `;
 
@@ -85,10 +75,15 @@ function About() {
             quibusdam perferendis, veniam similique eligendi?
           </p>
           <Social>
-            <i className="fab fa-github"></i>
-            <i className="fab fa-linkedin"></i>
-            <i className="fab fa-medium"></i>
-            <i className="fab fa-steam"></i>
+            <a href="https://github.com/therealdrtroll">
+              <i class="devicon-github-original"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/akshaykadam7991/">
+              <i class="devicon-linkedin-plain colored"></i>
+            </a>
+            <a href="https://ar1pperk.medium.com/">
+              <i className="fab fa-medium"></i>
+            </a>
           </Social>
         </ParagraphWrapper>
         <Profile></Profile>

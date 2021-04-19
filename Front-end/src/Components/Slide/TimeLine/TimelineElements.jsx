@@ -50,7 +50,7 @@ function EducationTimelineCard({ time, school, course, details }) {
       contentArrowStyle={{ borderRight: "7px solid  #ffffff" }}
       date={time}
       iconStyle={{
-        background: "rgb(3, 47, 61)",
+        background: "yellow",
         color: "#1a1111",
         transform: "scale(0.4)",
       }}
@@ -98,7 +98,7 @@ function InternshipTimeline() {
   ];
   return (
     <>
-      <VerticalTimeline position="left" layout="1-column-left">
+      <VerticalTimeline position="left" layout="1-column-right">
         {internshipItems.map((intern) => (
           <InternshipTimelineCard {...intern} />
         ))}
@@ -116,10 +116,10 @@ function InternshipTimelineCard({ time, position, company, details }) {
         background: "#ffffff",
         color: "#1f1b1b",
       }}
-      contentArrowStyle={{ borderRight: "7px solid  #ffffff" }}
+      contentArrowStyle={{ borderLeft: "7px solid  #ffffff" }}
       date={time}
       iconStyle={{
-        background: "rgb(3, 47, 61)",
+        background: "yellow",
         color: "#1a1111",
         transform: "scale(0.4)",
       }}

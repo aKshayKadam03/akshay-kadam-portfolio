@@ -36,29 +36,54 @@ const ContactMain = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-
+    width: 80%;
+    margin: 0 auto;
     > div {
-      margin: 10px;
-      width: 60%;
-    }
-    input {
-      font-size: 19px;
+      margin-bottom: 20px;
       width: 100%;
-      padding: 5px;
-      border-radius: 5px;
-      outline: none;
-      border: none;
-      padding-left: 15px;
+      input {
+        width: 95%;
+        font-size: 19px;
+        padding: 15px;
+        border-radius: 5px;
+        outline: none;
+        border: 3px solid white;
+        transition: all 500ms ease;
+      }
+      input:focus {
+        border-bottom: 3px solid ${(props) => props.theme.secondary};
+      }
     }
   }
 `;
 
+const ContactAction = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  i {
+    margin-right: 25px;
+    font-size: 25px;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  a:hover {
+    color: ${(props) => props.theme.secondary};
+  }
+`;
+
 const SendButton = styled.button`
-  font-size: 18px;
   padding: 5px 25px;
   border: none;
   border-radius: 5px;
   margin: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: ${(props) => props.theme.body};
+  background-color: ${(props) => props.theme.secondary};
 `;
 
 function Contact() {
@@ -80,9 +105,18 @@ function Contact() {
             <div>
               <input placeholder="Message" />
             </div>
-            <div>
+            <ContactAction>
+              <div>
+                <a href="tel:+917975960302">
+                  <i className="fas fa-phone-alt"></i>
+                </a>
+
+                <a href="https://api.whatsapp.com/send?phone=919036411285">
+                  <i className="fab fa-whatsapp"></i>
+                </a>
+              </div>
               <SendButton>Send</SendButton>
-            </div>
+            </ContactAction>
           </form>
         </div>
         <div>

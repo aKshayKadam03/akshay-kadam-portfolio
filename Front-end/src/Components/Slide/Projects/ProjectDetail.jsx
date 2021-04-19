@@ -15,14 +15,14 @@ import {
 } from "../../Elements/Elements";
 
 const techStackIcons = {
-  html,
-  css,
-  javascript,
-  react,
-  mongodb,
-  node,
-  express,
-  material,
+  HTML: html,
+  CSS: css,
+  JavaScript: javascript,
+  React: react,
+  MongoDB: mongodb,
+  Node: node,
+  Express: express,
+  MaterialUI: material,
 };
 
 const entranceAnimation = keyframes`
@@ -46,7 +46,6 @@ const ProjectDetailWrapper = styled.div`
   width: 80%;
   border-radius: 5px;
   margin: 0 auto;
-  min-height: 500px;
   border-top: 1px solid #390e47;
   margin-bottom: 10px;
   display: ${(props) => (props.status ? "inline" : "none")};
@@ -56,7 +55,10 @@ const ProjectDetailWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 50px;
+
+    @media (max-width: 750px) {
+      flex-direction: column-reverse;
+    }
   }
 `;
 
@@ -79,10 +81,10 @@ const closeStretch = keyframes`{
 
 const CloseButton = styled.div`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   font-size: 26px;
-  background-color: ${(props) => props.theme.fontColor};
+  background-color: ${(props) => props.theme.secondary};
   padding: 0 5px;
   border-radius: 25px;
   color: ${(props) => props.theme.body};
@@ -106,6 +108,10 @@ const CloseButton = styled.div`
 const ProjectSection = styled.div`
   display: flex;
   align-items: flex-start;
+  @media (max-width: 2000px) {
+    flex-direction: column;
+    align-items: center;
+  }
   > div {
     padding: 0 30px 30px 30px;
     width: 100%;
@@ -128,7 +134,7 @@ const ProjectSection = styled.div`
 `;
 
 const ProjectImage = styled.div`
-  width: 100%;
+  width: 80%;
   margin: 0 auto;
   align-items: center;
   box-shadow: 2px 2px 60px #4d2d4d;
@@ -166,16 +172,16 @@ const ProjectIcon = styled.div`
 
 const Button = styled.button`
   padding: 5px;
-  background-color: ${(props) => props.backgroundColor};
-  color: ${(props) => props.color};
+  background-color: ${(props) => props.theme.fontColor};
+  color: ${(props) => props.theme.body};
   font-size: 18px;
   border-radius: 5px;
-  border: 2px solid ${(props) => props.backgroundColor};
+  border: 2px solid ${(props) => props.theme.body};
   margin: 7px;
-
+  outline: none;
   :hover {
-    background-color: white;
-    color: black;
+    background-color: ${(props) => props.theme.secondary};
+    color: ${(props) => props.theme.body};
   }
   > i {
     margin: 0 5px;

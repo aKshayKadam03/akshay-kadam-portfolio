@@ -1,10 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {
-  MainHeadingWrapper,
-  ParagraphWrapper,
-  SubHeadingWrapper,
-} from "../../Elements/Elements";
+import { SubHeadingWrapper } from "../../Elements/Elements";
 
 const ProjectCardWrapper = styled.div`
   width: 100%;
@@ -29,8 +25,13 @@ const ProjectCardWrapper = styled.div`
     background: url(${(props) => props.backgroundImg});
   }
   @media (max-width: 750px) {
-    height: 100px;
-    max-width: 300px;
+    height: 50px;
+    max-width: 280px;
+    :hover {
+      transition: all 500ms ease;
+      color: #ffffff;
+      background: ${(props) => props.theme.secondary};
+    }
   }
 `;
 

@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+//   font-family: 'Lato', sans-serif;
+//   font-family: 'Montserrat', sans-serif;
+//   font-family: 'Rajdhani', sans-serif;
+
 export const MainHeadingWrapper = styled.div`
   text-align: center;
   padding: 30px;
@@ -8,12 +12,11 @@ export const MainHeadingWrapper = styled.div`
     font-size: ${(props) => (props.size ? props.size : "3rem")};
     width: fit-content;
     margin: 0 auto;
-    /* background-color: ${(props) => props.theme.body};
-    color: ${(props) => props.theme.fontColor}; */
     font-weight: 600;
+    /* font-family: "Rajdhani", sans-serif; */
   }
   > div {
-    border-bottom: 4px solid #c50e6a;
+    border-bottom: 4px solid ${(props) => props.theme.secondary};
     width: 100px;
     margin: 5px auto;
     border-radius: 10px;
@@ -26,16 +29,16 @@ export const SubHeadingWrapper = styled.div`
     margin: 0 auto;
     width: fit-content;
     font-weight: 600;
+    /* font-family: "Montserrat", sans-serif; */
   }
 `;
 
 export const ParagraphWrapper = styled.div`
   > p {
-    font-size: 1.2 rem;
+    font-size: 1.2rem;
     line-height: 1.3;
-    letter-spacing: 0.3ch;
-    /* background-color: ${(props) => props.theme.body};
-    color: ${(props) => props.theme.fontColor}; */
+    letter-spacing: 0.2ch;
     font-weight: 400;
+    /* font-family: "Lato", sans-serif; */
   }
 `;

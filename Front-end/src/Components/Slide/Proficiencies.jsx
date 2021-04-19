@@ -21,11 +21,13 @@ const SlideStack = styled.div`
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-
   > div {
     width: 200px;
     height: 180px;
     margin: 50px;
+    h4 {
+      white-space: nowrap;
+    }
   }
 `;
 
@@ -79,6 +81,12 @@ function Proficiencies() {
           </SubHeadingWrapper>
         </div>
         <div>
+          <Lottie options={dataStructureOptions}></Lottie>
+          <SubHeadingWrapper>
+            <h4>Data Structures</h4>
+          </SubHeadingWrapper>
+        </div>
+        <div>
           <Lottie options={backEndOptions}></Lottie>
           <SubHeadingWrapper>
             <h4>Back End</h4>
@@ -88,12 +96,6 @@ function Proficiencies() {
           <Lottie options={databaseOptions}></Lottie>
           <SubHeadingWrapper>
             <h4>Database</h4>
-          </SubHeadingWrapper>
-        </div>
-        <div>
-          <Lottie options={dataStructureOptions}></Lottie>
-          <SubHeadingWrapper>
-            <h4>Data Structures</h4>
           </SubHeadingWrapper>
         </div>
       </SlideStack>

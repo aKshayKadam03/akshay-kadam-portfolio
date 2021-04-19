@@ -63,10 +63,10 @@ const BridgeOne = styled.div`
   :after {
     content: "";
     width: 50%;
-    border-bottom: 2px solid #440f52;
+    border-bottom: 2px solid ${(props) => props.theme.secondary};
     border-radius: 10px;
     margin: 30px auto;
-    margin-bottom: -30px;
+
     box-shadow: -8px 8px 22px #b894b9;
   }
   p {

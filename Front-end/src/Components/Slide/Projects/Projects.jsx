@@ -1,21 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
-import {
-  MainHeadingWrapper,
-  SubHeadingWrapper,
-  ParagraphWrapper,
-} from "../../Elements/Elements";
+import { MainHeadingWrapper } from "../../Elements/Elements";
 import ProjectCard from "./ProjectCard";
 import ProjectDetail from "./ProjectDetail";
 
 const SlideSectionOne = styled.div`
-  min-height: 200vh;
+  min-height: ${(props) => (props.minHeightStatus ? "380vh" : "200vh")};
   display: flex;
   justify-content: space-between;
   background-color: ${(props) => props.theme.body};
   color: ${(props) => props.theme.fontColor};
-  padding-top: ${(props) => props.paddingTop};
 
   flex-wrap: wrap;
   > div {
@@ -25,6 +20,12 @@ const SlideSectionOne = styled.div`
     margin: 0 auto;
     width: 30%;
     flex-wrap: wrap;
+  }
+  @media (max-width: 1024px) {
+    min-height: ${(props) => (props.minHeightStatus ? "230vh" : "80vh")};
+  }
+  @media (max-width: 1024px) {
+    min-height: ${(props) => (props.minHeightStatus ? "230vh" : "90vh")};
   }
 `;
 
@@ -55,10 +56,10 @@ const BridgeTwo = styled.div`
   ::after {
     content: "";
     width: 50%;
-    border-bottom: 2px solid #440f52;
+    border-bottom: 2px solid ${(props) => props.theme.secondary};
     border-radius: 10px;
     margin: 0 auto;
-    box-shadow: -8px 8px 22px #1b0e1b;
+    box-shadow: -8px 8px 22px #b894b9;
   }
 `;
 
@@ -71,14 +72,14 @@ let projectArray = [
       "A web application to rent two-wheelers on monthly and daily basis.",
 
     techStack: [
-      "html",
-      "css",
-      "javascript",
-      "react",
-      "material",
-      "node",
-      "express",
-      "mongodb",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "MaterialUI",
+      "Node",
+      "Express",
+      "MongoDB",
     ],
     repoLink: "#",
     demoLink: "#",
@@ -93,11 +94,11 @@ let projectArray = [
   },
   {
     img:
-      "https://user-images.githubusercontent.com/39058941/100349610-ba683900-300e-11eb-8834-ed549d3ccb56.png",
-    title: "SmatBot",
+      "https://user-images.githubusercontent.com/39058941/115154017-68e04980-a096-11eb-8c0c-820652ed499e.png",
+    title: "Sudoku",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, a nostrum similique possimus tenetur natus. ",
-    techStack: ["html", "css", "javascript"],
+    techStack: ["HTML", "CSS", "JavaScript"],
     repoLink: "#",
     demoLink: "#",
     type: "A collaborative project built by a team of 3 executed in 4 days.",
@@ -114,7 +115,7 @@ let projectArray = [
     title: "Product Hunt",
     description:
       "An online product portal where users can browse, research, and post products. ",
-    techStack: ["html", "css", "javascript", "react", "material"],
+    techStack: ["HTML", "CSS", "JavaScript", "React", "MaterialUI"],
     repoLink: "#",
     demoLink: "#",
     type: "A collaborative project built by a team of 4 under 4 days.",
@@ -131,7 +132,7 @@ let projectArray = [
     title: "Clockify",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, a nostrum similique possimus tenetur natus. ",
-    techStack: ["html", "css", "javascript"],
+    techStack: ["HTML", "CSS", "JavaScript"],
     repoLink: "#",
     demoLink: "#",
     type: "A collaborative project built by a team of 4 under 4 days.",
@@ -150,7 +151,7 @@ function Projects() {
   let [currentProject, setCurrentProject] = React.useState({});
   return (
     <>
-      <BridgeTwo>
+      <BridgeTwo backgroundImg={currentProject.img}>
         <MainHeadingWrapper>
           <h1>Projects</h1>
           <div></div>
@@ -166,12 +167,13 @@ function Projects() {
           ))}
         </div>
         <ProjectDetail
+          id="currentProject"
           {...currentProject}
           panel={panel}
           setPanel={setPanel}
         ></ProjectDetail>
       </BridgeTwo>
-      <SlideSectionOne paddingTop="20.3%"></SlideSectionOne>
+      <SlideSectionOne minHeightStatus={panel}></SlideSectionOne>
     </>
   );
 }

@@ -54,7 +54,7 @@ const SlideSectionOne = styled.div`
   min-height: 100vh;
   display: flex;
   justify-content: space-between;
-  padding-top: ${(props) => props.paddingTop};
+
   padding-bottom: 100px;
   > div {
     display: flex;
@@ -87,7 +87,8 @@ const SlideSectionOne = styled.div`
 
 const Resume = styled.div`
   background: url(${(props) => props.img});
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   position: sticky;
   top: 10%;
   height: 70vh;
@@ -95,48 +96,55 @@ const Resume = styled.div`
   max-width: 500px;
   z-index: 10;
   border-radius: 5px;
-  padding-bottom: 40px;
+  padding-bottom: 50px;
   margin: 40px auto;
-  filter: opacity(95%);
 
-  @media (max-width: 750px) {
-    width: 87%;
+  @media (max-width: 1000px) {
+    width: 85%;
+    margin: 0 auto;
+    padding-bottom: 100px;
   }
 `;
 
 const Envelope = styled.div`
   background: url(${envelope});
-  background-size: cover;
-  height: 600px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 70vh;
   width: 100%;
   max-width: 550px;
   z-index: 10;
   border-radius: 5px;
-  display: grid;
-  place-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   position: relative;
-  margin-bottom: 40px;
-  padding-bottom: 40px;
-  @media (max-width: 750px) {
-    width: 90%;
+  /* margin-bottom: 40px; */
+  /* padding-bottom: 100px; */
+  @media (max-width: 1000px) {
+    width: 93%;
     margin: 0 auto;
   }
 `;
 
 const EnvelopeBottom = styled.div`
-  background: url(${envelopeBottom});
+  /* background: url(${envelopeBottom}); */
+  background-color: white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   width: 100%;
   height: 100px;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   margin: 0px auto;
-  margin-bottom: -25px;
+  margin-bottom: -30px;
   max-width: 550px;
-  @media (max-width: 750px) {
-    width: 90%;
+  @media (max-width: 1000px) {
+    width: 93%;
     margin: 0 auto;
-    margin-bottom: -40px;
+    margin-bottom: -35px;
   }
 `;
 
@@ -145,14 +153,19 @@ const ResumeAction = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  @media (max-width: 500px) {
+    margin-top: -200px;
+  }
 `;
 
 const ResumeButton = styled.button`
-  font-size: 18px;
-  padding: 5px 25px;
+  font-size: 21px;
+  padding: 15px 35px;
   border: none;
   border-radius: 5px;
   margin: 10px;
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.fontColor};
 
   span {
     font-weight: 600;
@@ -161,7 +174,12 @@ const ResumeButton = styled.button`
   }
   a {
     text-decoration: none;
-    color: black;
+    color: ${(props) => props.theme.fontColor};
+  }
+
+  @media (max-width: 500px) {
+    font-size: 16px;
+    padding: 5px 25px;
   }
 `;
 
@@ -220,7 +238,7 @@ const MailModal = styled.div`
   button {
     cursor: pointer;
     color: white;
-    background-color: #d61a1a;
+    background-color: ${(props) => props.theme.secondary};
   }
 `;
 
@@ -240,21 +258,21 @@ function Slide() {
   };
 
   //changing images with scroll height
-  // React.useEffect(() => {
-  //   document.addEventListener("scroll", () => {
-  //     if (window.pageYOffset < 3000) {
-  //       setCurrentImage(resumeOne);
-  //     } else if (window.pageYOffset < 3700) {
-  //       setCurrentImage(resumeTwo);
-  //     } else {
-  //       setCurrentImage(resumeFinal);
-  //     }
-  //   });
-  // });
+  React.useEffect(() => {
+    document.addEventListener("scroll", () => {
+      if (window.pageYOffset < 3000) {
+        setCurrentImage(resumeOne);
+      } else if (window.pageYOffset < 4400) {
+        setCurrentImage(resumeTwo);
+      } else {
+        setCurrentImage(resumeFinal);
+      }
+    });
+  });
 
   return (
     <SliderWrapper>
-      {/* <Proficiencies></Proficiencies> */}
+      <Proficiencies></Proficiencies>
       <SlideMain>
         <SectionWrapper>
           <SlideSectionOne>
@@ -466,7 +484,7 @@ function Slide() {
                     </a>
                   </i>
                 </ResumeButton>
-                <ResumeButton
+                {/* <ResumeButton
                   onClick={() => setMailModal((prev) => !prev)}
                   color="white"
                   backgroundColor="#25323F"
@@ -475,20 +493,20 @@ function Slide() {
                     <span>Mail to yourself</span>
                   </i>
                 </ResumeButton>
+                <MailModal status={mailModal}>
+                  <form onSubmit={onSubmitHandler}>
+                    <input
+                      value={email}
+                      type="email"
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Your email address"
+                    />
+                    <ResumeButton>
+                      <i class="fas fa-paper-plane"></i>
+                    </ResumeButton>
+                  </form>
+                </MailModal> */}
               </ResumeAction>
-              <MailModal status={mailModal}>
-                <form onSubmit={onSubmitHandler}>
-                  <input
-                    value={email}
-                    type="email"
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Your email address"
-                  />
-                  <ResumeButton>
-                    <i class="fas fa-paper-plane"></i>
-                  </ResumeButton>
-                </form>
-              </MailModal>
             </Envelope>
           </div>
         </SlideCanal>

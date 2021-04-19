@@ -9,18 +9,18 @@ import Footer from "./Components/Footer/Footer";
 import Head from "./Components/Head/Head";
 import Slide from "./Components/Slide/Slide";
 
-// #d8e3e7
+// #03506f
 
 const LightTheme = {
-  body: "#400082",
-  fontColor: "#000",
-  secondary: "#e1f4f3",
+  body: "#0a192f",
+  fontColor: "#fff",
+  secondary: "#fec107",
 };
 //#151515
 const DarkTheme = {
   body: "#000",
   fontColor: "#fff",
-  secondary: "#0c0b0b",
+  secondary: "#C50E6A",
 };
 
 const themes = {
@@ -29,7 +29,7 @@ const themes = {
 };
 
 function App() {
-  const [currentTheme, setCurrentTheme] = React.useState("dark");
+  const [currentTheme, setCurrentTheme] = React.useState("light");
   const themeToggler = () => {
     currentTheme === "light"
       ? setCurrentTheme("dark")

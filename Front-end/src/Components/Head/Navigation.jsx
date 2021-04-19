@@ -43,8 +43,15 @@ const Grow = styled.div`
     display: none;
   }
 `;
-const ThemeToggleButton = styled.div`
-  font-size: 30px;
+const ThemeToggleButton = styled.button`
+  font-size: 20px;
+  border-radius: 5px;
+  outline: none;
+  padding: 5px 10px;
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.fontColor};
+  border: 2px solid ${(props) => props.theme.secondary};
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 `;
 
 function Navigation({ themeToggler, currentTheme }) {
@@ -71,11 +78,9 @@ function Navigation({ themeToggler, currentTheme }) {
       </NavItem>
       <ThemeToggleButton onClick={themeToggler}>
         {currentTheme === "light" ? (
-          <i class="fas fa-moon"></i>
+          <i class="fas fa-moon"> </i>
         ) : (
-          //<i class="fas fa-moon"></i>
-          //<i style={{ color: "orange" }} class="fas fa-lightbulb"></i>
-          <i style={{ color: "orange" }} class="fas fa-cloud-sun"></i>
+          <i class="fas fa-sun"> </i>
         )}
       </ThemeToggleButton>
       <NavItem></NavItem>

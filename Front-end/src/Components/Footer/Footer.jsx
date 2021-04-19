@@ -14,7 +14,9 @@ const FooterWrapper = styled.div`
 function Footer() {
   return (
     <FooterWrapper id="contact">
-      <p> © therealdrtroll</p>
+      <ParagraphWrapper>
+        <p>© 2021 </p>
+      </ParagraphWrapper>
     </FooterWrapper>
   );
 }
