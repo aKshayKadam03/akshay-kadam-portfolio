@@ -4,7 +4,7 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-
+import { v4 as uuid } from "uuid";
 const educationItems = [
   {
     time: "2020-21",
@@ -31,7 +31,7 @@ function EducationTimeline() {
     <>
       <VerticalTimeline position="left" layout="1-column-left">
         {educationItems?.map((history) => (
-          <EducationTimelineCard {...history} />
+          <EducationTimelineCard key={history.school} {...history} />
         ))}
       </VerticalTimeline>
     </>
@@ -50,7 +50,7 @@ function EducationTimelineCard({ time, school, course, details }) {
       contentArrowStyle={{ borderRight: "7px solid  #ffffff" }}
       date={time}
       iconStyle={{
-        background: "yellow",
+        background: "#1d1717",
         color: "#1a1111",
         transform: "scale(0.4)",
       }}
@@ -96,11 +96,12 @@ function InternshipTimeline() {
       ],
     },
   ];
+
   return (
     <>
       <VerticalTimeline position="left" layout="1-column-right">
         {internshipItems.map((intern) => (
-          <InternshipTimelineCard {...intern} />
+          <InternshipTimelineCard key={uuid()} {...intern} />
         ))}
       </VerticalTimeline>
     </>
@@ -119,7 +120,7 @@ function InternshipTimelineCard({ time, position, company, details }) {
       contentArrowStyle={{ borderLeft: "7px solid  #ffffff" }}
       date={time}
       iconStyle={{
-        background: "yellow",
+        background: "#1d1717",
         color: "#1a1111",
         transform: "scale(0.4)",
       }}
@@ -136,13 +137,11 @@ function InternshipTimelineCard({ time, position, company, details }) {
       >
         {company}
       </h4>
-      <p>
-        <ul>
-          {details.map((list) => (
-            <li>{list}</li>
-          ))}
-        </ul>
-      </p>
+      <ul>
+        {details.map((list) => (
+          <li>{list}</li>
+        ))}
+      </ul>
     </VerticalTimelineElement>
   );
 }

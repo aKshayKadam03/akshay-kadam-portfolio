@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Switch from "react-switch";
 
 const NavBar = styled.div`
   width: 100%;
@@ -29,43 +30,29 @@ const NavItem = styled.div`
   }
 `;
 
-const Logo = styled.div`
-  font-size: 40px;
-  padding-left: 30px;
-  @media (max-width: 600px) {
-    display: none;
-  }
-`;
-
 const Grow = styled.div`
   flex-grow: 1;
   @media (max-width: 600px) {
     display: none;
   }
 `;
-const ThemeToggleButton = styled.button`
-  font-size: 20px;
-  border-radius: 5px;
-  outline: none;
-  padding: 5px 10px;
-  background-color: ${(props) => props.theme.body};
-  color: ${(props) => props.theme.fontColor};
-  border: 2px solid ${(props) => props.theme.secondary};
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-`;
 
 function Navigation({ themeToggler, currentTheme }) {
   const [activeLink, setActiveLink] = React.useState(3);
-
+  const [toggle, setToggle] = React.useState(false);
   const activeLinkHandler = (linkNo) => {
     setActiveLink(linkNo);
   };
 
+  const switchHandler = () => {
+    setToggle((prev) => !prev);
+    themeToggler();
+  };
+
   return (
     <NavBar active={activeLink}>
-      <Logo>
-        <p></p>
-      </Logo>
+      <NavItem></NavItem>
+
       <Grow></Grow>
       <NavItem onClick={() => activeLinkHandler(4)}>
         <a href="#about">About</a>
@@ -76,15 +63,19 @@ function Navigation({ themeToggler, currentTheme }) {
       <NavItem onClick={() => activeLinkHandler(5)}>
         <a href="#contact">Contact</a>
       </NavItem>
-      <ThemeToggleButton onClick={themeToggler}>
-        {currentTheme === "light" ? (
-          <i class="fas fa-moon"> </i>
-        ) : (
-          <i class="fas fa-sun"> </i>
-        )}
-      </ThemeToggleButton>
+
+      <Switch
+        onChange={switchHandler}
+        checkedIcon={false}
+        uncheckedIcon={false}
+        handleDiameter={20}
+        checked={toggle}
+        onColor="#fff"
+        offColor="#fff"
+        offHandleColor="#0A192F"
+        onHandleColor="#000000"
+      />
       <NavItem></NavItem>
-      {/* <ThemeToggleButton onClick={themeToggler}></ThemeToggleButton> */}
     </NavBar>
   );
 }

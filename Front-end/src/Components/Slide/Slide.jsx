@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import Proficiencies from "./Proficiencies";
-import axios from "axios";
 
 import {
   MainHeadingWrapper,
@@ -11,10 +10,13 @@ import {
 
 import envelope from "../Images/envelope.svg";
 import envelopeBottom from "../Images/bottom.svg";
-//resumes
+//resume images
 import resumeOne from "../Images/resumeOne.png";
 import resumeTwo from "../Images/resumeTwo.png";
 import resumeFinal from "../Images/resumeFinal.png";
+
+//resume pdf
+import resumePdf from "../Images/resume.pdf";
 
 import Projects from "./Projects/Projects";
 import TimeLine from "./TimeLine/TimeLine";
@@ -153,6 +155,12 @@ const ResumeAction = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 60%;
+  margin: 0 auto;
+  padding: 25px;
+  color: black;
+  background-color: #f8f8f8;
+  border-radius: 5px;
   @media (max-width: 500px) {
     margin-top: -200px;
   }
@@ -220,42 +228,10 @@ const Icons = styled.div`
   filter: invert(0%);
 `;
 
-const MailModal = styled.div`
-  transform: ${(props) => (props.status ? "scaleY(1)" : "scaleY(0)")};
-  transition: all 500ms ease;
-
-  input {
-    border: none;
-    font-size: 19px;
-    outline: none;
-    border-bottom: 2px solid black;
-    transition: all 500ms ease;
-  }
-  input:focus {
-    border-bottom: 2px solid #d61a1a;
-  }
-
-  button {
-    cursor: pointer;
-    color: white;
-    background-color: ${(props) => props.theme.secondary};
-  }
-`;
-
 function Slide() {
   const [currentImage, setCurrentImage] = React.useState(resumeOne);
-  const [email, setEmail] = React.useState("");
-  const [mailModal, setMailModal] = React.useState(false);
 
   let resumeRef = React.useRef();
-
-  const onSubmitHandler = async (e) => {
-    console.log(email);
-    e.preventDefault();
-    await axios.post("http://localhost:8989/mail", {
-      mail: email,
-    });
-  };
 
   //changing images with scroll height
   React.useEffect(() => {
@@ -454,7 +430,7 @@ function Slide() {
                   </div>
                   <div>
                     <Icons>
-                      <i class="devicon-wordpress-plain"></i>
+                      <i className="devicon-wordpress-plain"></i>
                     </Icons>
                     <ParagraphWrapper color="white">
                       <p>Wordpress</p>
@@ -477,35 +453,16 @@ function Slide() {
             <EnvelopeBottom></EnvelopeBottom>
             <Envelope>
               <ResumeAction>
+                <ParagraphWrapper>
+                  <p>Need a copy?</p>
+                </ParagraphWrapper>
                 <ResumeButton>
                   <i className="fas fa-download">
-                    <a href={envelope} download>
+                    <a href={resumePdf} download>
                       <span> Download</span>
                     </a>
                   </i>
                 </ResumeButton>
-                {/* <ResumeButton
-                  onClick={() => setMailModal((prev) => !prev)}
-                  color="white"
-                  backgroundColor="#25323F"
-                >
-                  <i className="fas fa-envelope">
-                    <span>Mail to yourself</span>
-                  </i>
-                </ResumeButton>
-                <MailModal status={mailModal}>
-                  <form onSubmit={onSubmitHandler}>
-                    <input
-                      value={email}
-                      type="email"
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Your email address"
-                    />
-                    <ResumeButton>
-                      <i class="fas fa-paper-plane"></i>
-                    </ResumeButton>
-                  </form>
-                </MailModal> */}
               </ResumeAction>
             </Envelope>
           </div>

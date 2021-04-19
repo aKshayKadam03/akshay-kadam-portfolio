@@ -241,11 +241,10 @@ function ProjectDetail({
             <ParagraphWrapper color="yellow">
               <p>Type :</p>
             </ParagraphWrapper>
-            <ul>
-              <ParagraphWrapper color="white">
-                <p>{type}</p>
-              </ParagraphWrapper>
-            </ul>
+
+            <ParagraphWrapper color="white">
+              <p>{type}</p>
+            </ParagraphWrapper>
           </div>
 
           <div>
@@ -265,13 +264,12 @@ function ProjectDetail({
             <ParagraphWrapper color="yellow">
               <p>Responsibilities :</p>
             </ParagraphWrapper>
-            <ul>
-              {responsibilities?.map((item) => (
-                <ParagraphWrapper color="white">
-                  <p>• {item}</p>
-                </ParagraphWrapper>
-              ))}
-            </ul>
+
+            {responsibilities?.map((item) => (
+              <ParagraphWrapper color="white">
+                <p>• {item}</p>
+              </ParagraphWrapper>
+            ))}
           </div>
           <ButtonHolders>
             <Button>

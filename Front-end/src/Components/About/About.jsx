@@ -76,10 +76,10 @@ function About() {
           </p>
           <Social>
             <a href="https://github.com/therealdrtroll">
-              <i class="devicon-github-original"></i>
+              <i className="devicon-github-original"></i>
             </a>
             <a href="https://www.linkedin.com/in/akshaykadam7991/">
-              <i class="devicon-linkedin-plain colored"></i>
+              <i className="devicon-linkedin-plain colored"></i>
             </a>
             <a href="https://ar1pperk.medium.com/">
               <i className="fab fa-medium"></i>

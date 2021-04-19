@@ -82,7 +82,7 @@ const BridgeOne = styled.div`
 function TimeLine() {
   return (
     <>
-      <BridgeOne color="white" backgroundColor=" #120218">
+      <BridgeOne>
         <MainHeadingWrapper>
           <h1>Education</h1>
           <div></div>
@@ -104,16 +104,16 @@ function TimeLine() {
           </p>
         </ParagraphWrapper>
       </BridgeOne>
-      <SlideSectionOne paddingTop="500px" backgroundColor=" #120218">
+      <SlideSectionOne paddingTop="500px">
         <div>
-          <SubHeadingWrapper fontSize="40px">
+          <SubHeadingWrapper fontSize="30px">
             <h4>Time-Line</h4>
           </SubHeadingWrapper>
           <EducationTimeline></EducationTimeline>
         </div>
         <div></div>
         <div>
-          <SubHeadingWrapper fontSize="40px">
+          <SubHeadingWrapper fontSize="30px">
             <h4>Internships</h4>
           </SubHeadingWrapper>
           <InternshipTimeline></InternshipTimeline>

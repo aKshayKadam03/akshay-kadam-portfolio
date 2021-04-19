@@ -1,65 +1,60 @@
+const nodemailer = require("nodemailer");
+const { body, validationResult } = require("express-validator");
 const express = require("express");
 const app = express();
-const nodemailer = require("nodemailer");
-const { google } = require("googleapis");
-const path = require("path");
 const cors = require("cors");
 require("dotenv").config();
 
 app.use(express.json());
 app.use(cors());
 
-const oAuth2Client = new google.auth.OAuth2(
-  process.env.CLIENT_ID,
-  process.env.CLIENT_SECRET,
-  process.env.REDIRECT_URI
-);
-oAuth2Client.setCredentials({ refresh_token: process.env.REFRESH });
+async function sendMail(name, email, message) {
+  let nodemailerMailgun = nodemailer.createTransport({
+    host: "smtp.mailgun.org",
+    port: 587,
+    auth: {
+      user: process.env.USER,
+      pass: process.env.PASS,
+    },
+  });
+  let mailOptions = {
+    to: "akshaykadam7991@gmail.com",
+    from: email,
+    text: `${name} says ${message}`,
+    subject: `Contact Form | Personal Website`,
+  };
 
-app.post("/mail", async (req, res) => {
-  console.log(req.body.mail);
-  send(req.body.mail);
-  return res.status(200).json({ status: "Success" });
-});
-
-async function send(userMail) {
-  try {
-    const accessToken = await oAuth2Client.getAccessToken();
-    let transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        type: "OAuth2",
-        user: "ar1pperk@gmail.com",
-        clientId: process.env.CLIENT_ID,
-        clientSecret: process.env.CLIENT_SECRET,
-        refreshToken: process.env.REFRESH,
-        accessToken: accessToken,
-      },
-    });
-    let mailOptions = {
-      from: "ar1pperk@gmail.com",
-      to: userMail,
-      subject: "Testing email",
-      text: "IT works",
-      attachments: [
-        {
-          filename: "sample.pdf",
-          path: path.join(__dirname, "sample.pdf"),
-          contentType: "application/pdf",
-        },
-      ],
-    };
-    transporter.sendMail(mailOptions, function (err, data) {
-      if (err) {
-        console.log(err.message);
-      } else {
-        console.log("success");
-      }
-    });
-  } catch (err) {
-    console.log(err.message);
-  }
+  await nodemailerMailgun.sendMail(mailOptions, function (error) {
+    if (error) {
+      console.log(error);
+      return false;
+    }
+    console.log("success");
+    return true;
+  });
 }
+
+app.post(
+  "/mail",
+  body("name").trim().isLength({ min: 1 }).withMessage("Name cannot be empty"),
+  body("email").isEmail().withMessage("Please type a valid email address"),
+  body("message")
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage("Message cannot be empty"),
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    let { name, email, message } = req.body;
+    if (sendMail(name, email, message)) {
+      return res.status(200).json({ status: "Success" });
+    } else {
+      return res.status(500).json({ status: "Failure" });
+    }
+  }
+);
 
 function start() {
   app.listen(8989, () => {

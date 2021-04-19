@@ -1,8 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import Lottie from "react-lottie";
+import axios from "axios";
 import mailAnimation from "../Animations/mail.json";
 import { MainHeadingWrapper, SubHeadingWrapper } from "../Elements/Elements";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const mailOptions = {
   loop: true,
@@ -86,24 +89,71 @@ const SendButton = styled.button`
   background-color: ${(props) => props.theme.secondary};
 `;
 
+const intitialData = {
+  name: "",
+  email: "",
+  message: "",
+};
+
 function Contact() {
+  const [data, setData] = React.useState(intitialData);
+  const onChangeHandler = (e) => {
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value });
+  };
+
+  const success = () => toast.dark("Successfully Sent");
+  const failure = () => toast.failure("Something went wrong");
+
+  const onSubmitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post("http://localhost:8989/mail", data);
+      setData(intitialData);
+      success();
+    } catch (err) {
+      failure();
+    }
+  };
+
+  const { name, email, message } = data;
+
   return (
     <ContactWrapper id="contact">
+      <ToastContainer />
       <ContactMain>
         <div>
           <MainHeadingWrapper>
             <h1>Get In Touch</h1>
             <div></div>
           </MainHeadingWrapper>
-          <form>
+          <form onSubmit={onSubmitHandler}>
             <div>
-              <input placeholder="Name" />
+              <input
+                required
+                value={name}
+                name="name"
+                onChange={onChangeHandler}
+                placeholder="Name"
+              />
             </div>
             <div>
-              <input placeholder="Email" />
+              <input
+                value={email}
+                type="email"
+                name="email"
+                onChange={onChangeHandler}
+                placeholder="Email"
+              />
             </div>
             <div>
-              <input placeholder="Message" />
+              <input
+                required
+                value={message}
+                name="message"
+                onChange={onChangeHandler}
+                placeholder="Message"
+              />
             </div>
             <ContactAction>
               <div>

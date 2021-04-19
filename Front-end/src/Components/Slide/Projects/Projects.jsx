@@ -150,7 +150,7 @@ function Projects() {
   const [panel, setPanel] = React.useState(false);
   let [currentProject, setCurrentProject] = React.useState({});
   return (
-    <>
+    <div id="projects">
       <BridgeTwo backgroundImg={currentProject.img}>
         <MainHeadingWrapper>
           <h1>Projects</h1>
@@ -174,7 +174,7 @@ function Projects() {
         ></ProjectDetail>
       </BridgeTwo>
       <SlideSectionOne minHeightStatus={panel}></SlideSectionOne>
-    </>
+    </div>
   );
 }
 
