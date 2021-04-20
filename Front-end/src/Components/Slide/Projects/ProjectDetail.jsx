@@ -276,17 +276,17 @@ function ProjectDetail({
             ))}
           </div>
           <ButtonHolders>
-            <a href={repoLink}>
+            <a target="_blank" rel="noreferrer" href={repoLink}>
               <Button>
                 <i className="devicon-github-original"> Code</i>
               </Button>
             </a>
-            <a href={demoLink}>
+            <a target="_blank" rel="noreferrer" href={demoLink}>
               <Button>
                 <i className="far fa-eye"> Demo</i>
               </Button>
             </a>
-            <a href={blogLink}>
+            <a target="_blank" rel="noreferrer" href={blogLink}>
               <Button>
                 <i className="fab fa-medium"> Blog</i>
               </Button>

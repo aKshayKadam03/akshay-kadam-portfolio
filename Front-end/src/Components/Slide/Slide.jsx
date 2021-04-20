@@ -1,26 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 import Proficiencies from "./Skills/Proficiencies";
+import Projects from "./Projects/Projects";
+import TimeLine from "./TimeLine/TimeLine";
+import Skillset from "./Skills/Skillset";
 
-import {
-  MainHeadingWrapper,
-  SubHeadingWrapper,
-  ParagraphWrapper,
-} from "../Elements/Elements";
+import { ParagraphWrapper } from "../Elements/Elements";
 
 import envelope from "../Images/envelope.svg";
 import envelopeBottom from "../Images/bottom.svg";
+
 //resume images
 import resumeOne from "../Images/resumeOne.png";
 import resumeTwo from "../Images/resumeTwo.png";
 import resumeFinal from "../Images/resumeFinal.png";
-
-//resume pdf
-import resumePdf from "../Images/resume.pdf";
-
-import Projects from "./Projects/Projects";
-import TimeLine from "./TimeLine/TimeLine";
-import Skillset from "./Skills/Skillset";
 
 const SliderWrapper = styled.div`
   background-color: ${(props) => props.theme.body};
@@ -34,41 +27,6 @@ const SlideMain = styled.div`
   margin: 0 auto;
   > div {
     min-width: 300px;
-  }
-`;
-
-const SlideSectionOne = styled.div`
-  min-height: 100vh;
-  display: flex;
-  justify-content: space-between;
-
-  padding-bottom: 100px;
-  > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin: 0 auto;
-    width: 30%;
-    min-width: 250px;
-  }
-  > div:nth-child(2) {
-    min-width: 500px;
-  }
-
-  @media (max-width: 750px) {
-    flex-direction: column;
-    padding-top: 100px;
-    > div {
-      min-width: 300px;
-    }
-  }
-  @media (max-width: 1100px) {
-    > div:nth-child(2) {
-      display: none;
-    }
-    > div {
-      width: 45%;
-    }
   }
 `;
 
@@ -234,7 +192,12 @@ function Slide() {
                 <ParagraphWrapper>
                   <p>Need a copy?</p>
                 </ParagraphWrapper>
-                <a href={resumePdf} download>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://drive.google.com/file/d/1y4Ym7brDI7JevzAkr5MvblnHRZh_N1vr/view?usp=sharing"
+                  download
+                >
                   <ResumeButton>
                     <span> Download</span>
                   </ResumeButton>

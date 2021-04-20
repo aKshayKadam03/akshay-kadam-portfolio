@@ -75,13 +75,25 @@ function About() {
             developer.
           </p>
           <Social>
-            <a href="https://github.com/therealdrtroll">
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://github.com/therealdrtroll"
+            >
               <i className="devicon-github-original"></i>
             </a>
-            <a href="https://www.linkedin.com/in/akshaykadam7991/">
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://www.linkedin.com/in/akshaykadam7991/"
+            >
               <i className="devicon-linkedin-plain colored"></i>
             </a>
-            <a href="https://ar1pperk.medium.com/">
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://ar1pperk.medium.com/"
+            >
               <i className="fab fa-medium"></i>
             </a>
           </Social>

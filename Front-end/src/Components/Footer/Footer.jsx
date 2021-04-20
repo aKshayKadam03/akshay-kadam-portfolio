@@ -38,7 +38,11 @@ function Footer() {
       <ParagraphWrapper>
         <p>
           <span>© 2021</span>|
-          <a href="https://github.com/therealdrtroll/akshay-kadam-portfolio">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://github.com/therealdrtroll/akshay-kadam-portfolio"
+          >
             <button>
               <i class="devicon-github-original"></i> Source Code
             </button>
