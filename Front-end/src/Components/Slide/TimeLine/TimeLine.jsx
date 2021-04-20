@@ -13,7 +13,7 @@ const SlideSectionOne = styled.div`
   justify-content: space-between;
   background-color: ${(props) => props.theme.body};
   color: ${(props) => props.theme.fontColor};
-  padding-top: 60vh;
+  padding-top: 600px;
   padding-bottom: 100px;
 
   > div {
@@ -27,12 +27,15 @@ const SlideSectionOne = styled.div`
     min-width: 300px;
   }
 
-  @media (max-width: 750px) {
+  @media (max-width: 600px) {
     flex-direction: column;
-    padding-top: 100px;
+    padding-top: 300px;
     > div {
       min-width: 300px;
     }
+  }
+  @media (max-width: 750px) {
+    padding-top: 100px;
   }
   @media (max-width: 1100px) {
     > div:nth-child(2) {
@@ -86,18 +89,18 @@ function TimeLine() {
         </MainHeadingWrapper>
         <ParagraphWrapper>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem
-            officiis voluptates perferendis incidunt voluptatibus, totam,
-            perspiciatis cupiditate et distinctio aliquam excepturi quidem! Vero
-            id distinctio, voluptate aperiam dolores quod sequi dicta eos! Iusto
-            ut laborum laudantium quod temporibus ducimus sit soluta
-            praesentium? Reiciendis odio voluptates cum sequi, minima, alias
-            consequuntur fugiat explicabo in temporibus est deserunt velit quasi
-            quod quo iure, dolores accusamus. Pariatur dolorem placeat officia
-            eum distinctio sit? Velit sit laudantium possimus architecto. Sit
-            earum corrupti suscipit inventore voluptas fuga? Tempore alias nam,
-            labore temporibus quasi deserunt modi quia veritatis doloremque
-            corporis magnam sed iure cumque exercitationem deleniti.
+            I have done all of my education right from schooling to college in
+            the state of Karnataka,India. Since I had interest in computers,
+            after passing 12th grade I chose computer science and engineering as
+            my branch for my graduation. During my graduation I studied a lot of
+            theory but did not gain much of practical knowledge, in the final
+            year of my graduation I decided to explore digital marketing. I
+            joined as digital marketing and web development intern in a company
+            called cubicode situated in belgaum.During my internship was made to
+            build websites using WordPress, that is when I discovered my
+            interest in building web applications. I wanted to explore more,
+            therefore in the month of october 2020 I joined Masai school to
+            learn full stack web development.
           </p>
         </ParagraphWrapper>
       </BridgeOne>

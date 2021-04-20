@@ -26,6 +26,7 @@ const Content = styled.div`
 
   > div:nth-child(1) {
     max-width: 900px;
+    margin: 0px auto;
   }
 `;
 
@@ -51,28 +52,27 @@ const Social = styled.div`
 
 function About() {
   return (
-    <Wrapper backgroundColor="#d1cccc" id="about">
+    <Wrapper id="about">
       <MainHeadingWrapper>
         <h1>About Me</h1>
         <div></div>
       </MainHeadingWrapper>
       <SubHeadingWrapper>
-        <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h4>
+        <h4>
+          <q> Life always begins with one step outside of your comfort zone </q>
+        </h4>
       </SubHeadingWrapper>
       <Content>
         <ParagraphWrapper>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia
-            quasi qui tempore fugit tempora. Dolorum dolore nemo sint ipsum,
-            beatae nam debitis! Quaerat quam ducimus unde nihil? Natus tempora,
-            quas eum rerum aspernatur officiis et ullam minima suscipit quam,
-            iure deserunt? Facilis cum perspiciatis autem. Vel eum totam fuga
-            molestiae non nesciunt distinctio eaque hic illo sed sequi at modi
-            rem, enim voluptatum, alias officia culpa nam asperiores? Vel
-            voluptatum voluptatem accusamus, in omnis obcaecati maiores autem
-            officia amet rem, recusandae minima impedit error provident minus
-            perferendis laborum soluta ex? Enim libero dolores nulla officiis
-            quibusdam perferendis, veniam similique eligendi?
+            I was introduced to computers from an early age. By the time I grew
+            up, they were a major part of my life. In past few months I have
+            invested my time learning technical and soft skills. Have built a
+            number of web applications and 3 major projects. Have invested a lot
+            of time in data structures and algorithm. Learned a great deal about
+            teamwork, leadership, and communication. After months of rigorous
+            training, here I am looking for an opportunity as a full stack web
+            developer.
           </p>
           <Social>
             <a href="https://github.com/therealdrtroll">

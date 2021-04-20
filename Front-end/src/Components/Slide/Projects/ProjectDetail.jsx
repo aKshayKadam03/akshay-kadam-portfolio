@@ -1,5 +1,8 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import { v4 as uuid } from "uuid";
+
+//svg icons
 import html from "../../Icons/html.svg";
 import css from "../../Icons/css.svg";
 import javascript from "../../Icons/javascript.svg";
@@ -46,7 +49,7 @@ const ProjectDetailWrapper = styled.div`
   width: 80%;
   border-radius: 5px;
   margin: 0 auto;
-  border-top: 1px solid #390e47;
+  padding-top: 30px;
   margin-bottom: 10px;
   display: ${(props) => (props.status ? "inline" : "none")};
   animation: ${entranceAnimation} 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
@@ -84,7 +87,7 @@ const CloseButton = styled.div`
   align-items: center;
   justify-content: space-between;
   font-size: 26px;
-  background-color: ${(props) => props.theme.secondary};
+  background-color: ${(props) => props.theme.fontColor};
   padding: 0 5px;
   border-radius: 25px;
   color: ${(props) => props.theme.body};
@@ -137,7 +140,7 @@ const ProjectImage = styled.div`
   width: 80%;
   margin: 0 auto;
   align-items: center;
-  box-shadow: 2px 2px 60px #4d2d4d;
+  box-shadow: 2px 2px 60px #4d464d;
   border-radius: 5px;
   > img {
     width: 100%;
@@ -170,13 +173,18 @@ const ProjectIcon = styled.div`
   }
 `;
 
+const ButtonHolders = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
 const Button = styled.button`
-  padding: 5px;
-  background-color: ${(props) => props.theme.fontColor};
-  color: ${(props) => props.theme.body};
+  padding: 10px 15px;
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.fontColor};
   font-size: 18px;
   border-radius: 5px;
-  border: 2px solid ${(props) => props.theme.body};
+  border: 2px solid ${(props) => props.theme.secondary};
   margin: 7px;
   outline: none;
   :hover {
@@ -187,10 +195,6 @@ const Button = styled.button`
     margin: 0 5px;
   }
 `;
-const ButtonHolders = styled.div`
-  display: flex;
-  justify-content: flex-end;
-`;
 
 function ProjectDetail({
   img,
@@ -198,8 +202,8 @@ function ProjectDetail({
   description,
   responsibilities,
   type,
-  blog,
   techStack,
+  blogLink,
   repoLink,
   demoLink,
   setPanel,
@@ -210,7 +214,7 @@ function ProjectDetail({
   };
 
   return (
-    <ProjectDetailWrapper status={panel}>
+    <ProjectDetailWrapper id="solo" status={panel}>
       <div>
         <div>
           <MainHeadingWrapper>
@@ -266,21 +270,27 @@ function ProjectDetail({
             </ParagraphWrapper>
 
             {responsibilities?.map((item) => (
-              <ParagraphWrapper color="white">
+              <ParagraphWrapper key={uuid()} color="white">
                 <p>• {item}</p>
               </ParagraphWrapper>
             ))}
           </div>
           <ButtonHolders>
-            <Button>
-              <i className="devicon-github-original"> Code</i>
-            </Button>
-            <Button>
-              <i className="far fa-eye"> Demo</i>
-            </Button>
-            <Button>
-              <i className="fab fa-medium"> Blog</i>
-            </Button>
+            <a href={repoLink}>
+              <Button>
+                <i className="devicon-github-original"> Code</i>
+              </Button>
+            </a>
+            <a href={demoLink}>
+              <Button>
+                <i className="far fa-eye"> Demo</i>
+              </Button>
+            </a>
+            <a href={blogLink}>
+              <Button>
+                <i className="fab fa-medium"> Blog</i>
+              </Button>
+            </a>
           </ButtonHolders>
         </div>
       </ProjectSection>

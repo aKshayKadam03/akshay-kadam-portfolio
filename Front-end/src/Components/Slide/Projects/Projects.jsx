@@ -81,10 +81,11 @@ let projectArray = [
       "Express",
       "MongoDB",
     ],
-    repoLink: "#",
+    repoLink: "https://github.com/therealdrtroll/royal_brothers",
     demoLink: "#",
     type: "A collaborative project built by a team of 3 executed in 4 days.",
-    blog: "#",
+    blogLink:
+      "https://ar1pperk.medium.com/building-a-bike-rental-website-from-scratch-28572c5565f7",
     responsibilities: [
       "Built REST API and integrated it with the frontend.",
       "Laid out the database schema and built authentication.",
@@ -97,12 +98,12 @@ let projectArray = [
       "https://user-images.githubusercontent.com/39058941/115154017-68e04980-a096-11eb-8c0c-820652ed499e.png",
     title: "Sudoku",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, a nostrum similique possimus tenetur natus. ",
+      "A sudoku challenge for users, where they can solve or submit their own puzzles and get them solved.",
     techStack: ["HTML", "CSS", "JavaScript"],
-    repoLink: "#",
-    demoLink: "#",
-    type: "A collaborative project built by a team of 3 executed in 4 days.",
-    blog: "#",
+    repoLink: "https://github.com/therealdrtroll/sudoku",
+    demoLink: "https://sudoku-solver-animated.netlify.app/",
+    type: "Solo project",
+    blogLink: "#",
     responsibilities: [
       "Built REST API and integrated it with the frontend.",
       "Laid out the database schema and built authentication.",
@@ -116,10 +117,11 @@ let projectArray = [
     description:
       "An online product portal where users can browse, research, and post products. ",
     techStack: ["HTML", "CSS", "JavaScript", "React", "MaterialUI"],
-    repoLink: "#",
-    demoLink: "#",
+    repoLink: "https://github.com/therealdrtroll/product-hunt",
     type: "A collaborative project built by a team of 4 under 4 days.",
-    blog: "#",
+    demoLink: "#",
+    blogLink:
+      "https://ar1pperk.medium.com/how-can-you-collab-remotely-to-develop-an-effective-product-in-4-days-ff3d2a0168dd",
     responsibilities: [
       "Scraped data from the original product hunt.",
       "Developed pixel-perfect UI of the product page.",
@@ -131,16 +133,17 @@ let projectArray = [
       "https://user-images.githubusercontent.com/39058941/103478684-652dfd00-4dee-11eb-8fa2-a022a00bdeea.png",
     title: "Clockify",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, a nostrum similique possimus tenetur natus. ",
+      "A time tracking app which lets users to schedule, track and get insights on tasks",
     techStack: ["HTML", "CSS", "JavaScript"],
-    repoLink: "#",
+    repoLink: "https://github.com/therealdrtroll/clockify-clone",
     demoLink: "#",
-    type: "A collaborative project built by a team of 4 under 4 days.",
-    blog: "#",
+    type: "A collaborative project built by a team of 3 under 4 days.",
+    blogLink:
+      "https://ar1pperk.medium.com/we-were-asked-to-build-a-working-clockify-clone-in-three-days-the-results-may-surprise-you-30eea012e635",
     responsibilities: [
-      "Scraped data from the original product hunt.",
-      "Developed pixel-perfect UI of the product page.",
-      "Implemented features like up-vote, share, and single product modal.",
+      "Developed the time tracking engine for the application",
+      "Built and synchronized time tracker and scheduler",
+      "Implemented chart.js to visualize data",
     ],
   },
 ];
@@ -166,6 +169,7 @@ function Projects() {
             ></ProjectCard>
           ))}
         </div>
+
         <ProjectDetail
           id="currentProject"
           {...currentProject}

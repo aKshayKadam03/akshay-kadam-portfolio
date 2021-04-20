@@ -36,6 +36,10 @@ export const SubHeadingWrapper = styled.div`
     margin: 0 auto;
     width: fit-content;
     font-weight: 600;
+    q {
+      color: #a0a0a0;
+      font-style: italic;
+    }
   }
   @media (max-width: 1100px) {
     font-size: 1.5rem;

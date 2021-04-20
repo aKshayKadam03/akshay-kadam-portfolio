@@ -31,7 +31,7 @@ function ToTop() {
   window.addEventListener("scroll", handleNavigationPosition);
 
   return (
-    <TopWrapper active={toTopState} href="#home">
+    <TopWrapper active={toTopState} href="#">
       ^
     </TopWrapper>
   );
