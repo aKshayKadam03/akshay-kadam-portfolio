@@ -228,7 +228,7 @@ function Slide() {
     document.addEventListener("scroll", () => {
       if (window.pageYOffset < 3000) {
         setCurrentImage(resumeOne);
-      } else if (window.pageYOffset < 4400) {
+      } else if (window.pageYOffset < 4500) {
         setCurrentImage(resumeTwo);
       } else {
         setCurrentImage(resumeFinal);
@@ -453,13 +453,13 @@ function Slide() {
                 <ParagraphWrapper>
                   <p>Need a copy?</p>
                 </ParagraphWrapper>
-                <ResumeButton>
-                  <i className="fas fa-download">
-                    <a href={resumePdf} download>
+                <a href={resumePdf} download>
+                  <ResumeButton>
+                    <i className="fas fa-download">
                       <span> Download</span>
-                    </a>
-                  </i>
-                </ResumeButton>
+                    </i>
+                  </ResumeButton>
+                </a>
               </ResumeAction>
             </Envelope>
           </div>

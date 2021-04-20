@@ -208,7 +208,7 @@ function ProjectDetail({
   const onCloseHandler = () => {
     setPanel(false);
   };
-  console.log(responsibilities, "responsibilities");
+
   return (
     <ProjectDetailWrapper status={panel}>
       <div>

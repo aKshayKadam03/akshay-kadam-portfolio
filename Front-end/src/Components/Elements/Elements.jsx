@@ -9,7 +9,7 @@ export const MainHeadingWrapper = styled.div`
   padding: 30px;
 
   > h1 {
-    font-size: ${(props) => (props.size ? props.size : "3rem")};
+    font-size: 3rem;
     width: fit-content;
     margin: 0 auto;
     font-weight: 600;
@@ -21,15 +21,28 @@ export const MainHeadingWrapper = styled.div`
     margin: 5px auto;
     border-radius: 10px;
   }
+  @media (max-width: 1100px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 750px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const SubHeadingWrapper = styled.div`
   > h4 {
-    font-size: ${(props) => (props.fontSize ? props.fontSize : "30px")};
+    font-size: 1.7rem;
     margin: 0 auto;
     width: fit-content;
     font-weight: 600;
-    /* font-family: "Montserrat", sans-serif; */
+  }
+  @media (max-width: 1100px) {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 750px) {
+    font-size: 1.2rem;
   }
 `;
 
@@ -40,5 +53,12 @@ export const ParagraphWrapper = styled.div`
     letter-spacing: 0.2ch;
     font-weight: 400;
     /* font-family: "Lato", sans-serif; */
+  }
+  @media (max-width: 1100px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 750px) {
+    font-size: 0.8rem;
   }
 `;

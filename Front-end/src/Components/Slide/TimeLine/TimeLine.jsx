@@ -13,13 +13,12 @@ const SlideSectionOne = styled.div`
   justify-content: space-between;
   background-color: ${(props) => props.theme.body};
   color: ${(props) => props.theme.fontColor};
-  padding-top: ${(props) => props.paddingTop};
+  padding-top: 60vh;
   padding-bottom: 100px;
 
   > div {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     margin: 0 auto;
     width: 30%;
     min-width: 250px;
@@ -53,13 +52,11 @@ const BridgeOne = styled.div`
   margin: 0 auto;
   background-color: ${(props) => props.theme.body};
   color: ${(props) => props.theme.fontColor};
-
   min-height: 400px;
   z-index: 99;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   :after {
     content: "";
     width: 50%;
@@ -81,7 +78,7 @@ const BridgeOne = styled.div`
 
 function TimeLine() {
   return (
-    <>
+    <div id="education">
       <BridgeOne>
         <MainHeadingWrapper>
           <h1>Education</h1>
@@ -104,7 +101,7 @@ function TimeLine() {
           </p>
         </ParagraphWrapper>
       </BridgeOne>
-      <SlideSectionOne paddingTop="500px">
+      <SlideSectionOne>
         <div>
           <SubHeadingWrapper fontSize="30px">
             <h4>Time-Line</h4>
@@ -119,7 +116,7 @@ function TimeLine() {
           <InternshipTimeline></InternshipTimeline>
         </div>
       </SlideSectionOne>
-    </>
+    </div>
   );
 }
 

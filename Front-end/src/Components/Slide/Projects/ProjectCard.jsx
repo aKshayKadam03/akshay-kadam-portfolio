@@ -19,6 +19,7 @@ const ProjectCardWrapper = styled.div`
   position: relative;
   display: grid;
   place-content: center;
+
   :hover {
     transition: all 3000ms ease;
     color: #ffffff;
