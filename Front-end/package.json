@@ -8,13 +8,9 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.2",
-    "axios": "^0.21.1",
-    "emailjs-com": "^2.6.4",
     "react": "^17.0.1",
-    "react-chrono": "^1.9.2",
     "react-dom": "^17.0.1",
     "react-lottie": "^1.2.3",
-    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "react-spring": "^9.1.1",
     "react-toastify": "^7.0.3",
@@ -34,6 +30,7 @@
       "react-app/jest"
     ]
   },
+  "homepage": ".",
   "browserslist": {
     "production": [
       ">0.2%",

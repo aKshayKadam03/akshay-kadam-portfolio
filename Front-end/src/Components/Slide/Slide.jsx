@@ -36,22 +36,6 @@ const SlideMain = styled.div`
   }
 `;
 
-const SlideCanal = styled.div`
-  position: absolute;
-  display: flex;
-  left: 50%;
-  top: 0;
-  transform: translate(-50%, 0);
-  width: 100%;
-  max-width: 550px;
-  height: 100%;
-  flex-direction: column;
-  justify-content: space-between;
-  @media (max-width: 1100px) {
-    position: relative;
-  }
-`;
-
 const SlideSectionOne = styled.div`
   min-height: 100vh;
   display: flex;
@@ -87,83 +71,89 @@ const SlideSectionOne = styled.div`
   }
 `;
 
+const SlideCanal = styled.div`
+  position: absolute;
+  display: flex;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 0);
+  width: 40%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media (max-width: 1100px) {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+  }
+`;
+
 const Resume = styled.div`
   background: url(${(props) => props.img});
   background-size: contain;
   background-repeat: no-repeat;
   position: sticky;
   top: 10%;
-  height: 70vh;
-  width: 100%;
+  width: 85%;
   max-width: 500px;
-  z-index: 10;
+  z-index: 11;
   border-radius: 5px;
   padding-bottom: 50px;
   margin: 40px auto;
-
-  @media (max-width: 1000px) {
-    width: 85%;
+  img {
+    width: 100%;
+    border-radius: 5px;
+    max-height: 650px;
+  }
+  @media (max-width: 1100px) {
+    width: 90%;
     margin: 0 auto;
-    padding-bottom: 100px;
   }
 `;
 
 const Envelope = styled.div`
-  background: url(${envelope});
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 70vh;
-  width: 100%;
-  max-width: 550px;
-  z-index: 10;
-  border-radius: 5px;
+  width: 90%;
+  position: relative;
+  max-width: 530px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-
+  margin: 0 auto;
   position: relative;
-  /* margin-bottom: 40px; */
-  /* padding-bottom: 100px; */
-  @media (max-width: 1000px) {
-    width: 93%;
-    margin: 0 auto;
+  > div::nth-child(1) {
+    z-index: 10;
   }
-`;
-
-const EnvelopeBottom = styled.div`
-  /* background: url(${envelopeBottom}); */
-  background-color: white;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  width: 100%;
-  height: 100px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  margin: 0px auto;
-  margin-bottom: -30px;
-  max-width: 550px;
-  @media (max-width: 1000px) {
-    width: 93%;
-    margin: 0 auto;
-    margin-bottom: -35px;
+  > div:nth-child(2) {
+    z-index: 12;
+    img {
+      margin-top: -8%;
+      width: 100%;
+      z-index: 20;
+    }
+  }
+  @media (max-width: 1100px) {
+    width: 95%;
   }
 `;
 
 const ResumeAction = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 20;
+  min-width: 200px;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 60%;
+  width: 50%;
   margin: 0 auto;
   padding: 25px;
   color: black;
   background-color: #f8f8f8;
   border-radius: 5px;
-  @media (max-width: 500px) {
-    margin-top: -200px;
-  }
 `;
 
 const ResumeButton = styled.button`
@@ -448,10 +438,17 @@ function Slide() {
           <Projects></Projects>
         </SectionWrapper>
         <SlideCanal>
-          <Resume ref={resumeRef} img={currentImage}></Resume>
+          <Resume ref={resumeRef}>
+            <img src={currentImage} alt="resume" />
+          </Resume>
           <div>
-            <EnvelopeBottom></EnvelopeBottom>
             <Envelope>
+              <div>
+                <img src={envelopeBottom} alt="envelope" />
+              </div>
+              <div>
+                <img src={envelope} alt="envelope" />
+              </div>
               <ResumeAction>
                 <ParagraphWrapper>
                   <p>Need a copy?</p>
