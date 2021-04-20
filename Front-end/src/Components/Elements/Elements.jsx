@@ -33,7 +33,7 @@ export const MainHeadingWrapper = styled.div`
 export const SubHeadingWrapper = styled.div`
   > h4 {
     font-size: 1.7rem;
-    margin: 0 auto;
+    margin: 30px auto;
     width: fit-content;
     font-weight: 600;
     q {

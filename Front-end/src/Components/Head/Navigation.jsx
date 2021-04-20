@@ -27,6 +27,9 @@ const NavItem = styled.div`
   }
   @media (max-width: 750px) {
     margin: 9px;
+    a {
+      font-size: 14px;
+    }
   }
 `;
 
@@ -52,7 +55,6 @@ function Navigation({ themeToggler, currentTheme }) {
   return (
     <NavBar active={activeLink}>
       <NavItem></NavItem>
-
       <Grow></Grow>
       <NavItem onClick={() => activeLinkHandler(4)}>
         <a href="#about">About</a>

@@ -5,7 +5,7 @@ import { SubHeadingWrapper } from "../../Elements/Elements";
 const ProjectCardWrapper = styled.div`
   width: 100%;
   max-width: 400px;
-  height: 400px;
+  height: 300px;
   border-radius: 5px;
   color: #ffffff;
   margin: 20px;
@@ -25,7 +25,16 @@ const ProjectCardWrapper = styled.div`
     color: #ffffff;
     background: url(${(props) => props.backgroundImg});
   }
-  @media (max-width: 750px) {
+  @media (max-width: 850px) {
+    height: 250px;
+    max-width: 350px;
+    :hover {
+      transition: all 500ms ease;
+      color: #ffffff;
+      background: ${(props) => props.theme.secondary};
+    }
+  }
+  @media (max-width: 500px) {
     height: 50px;
     max-width: 280px;
     :hover {

@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-import { MainHeadingWrapper, ParagraphWrapper } from "../../Elements/Elements";
+import {
+  MainHeadingWrapper,
+  ParagraphWrapper,
+  SubHeadingWrapper,
+} from "../../Elements/Elements";
 
 const SlideSectionOne = styled.div`
   min-height: 100vh;
@@ -73,13 +77,16 @@ const Icons = styled.div`
 function Skillset() {
   return (
     <>
-      {" "}
       <SlideSectionOne>
         <div>
           <div>
-            <MainHeadingWrapper size="31px">
+            {/* <MainHeadingWrapper size="31px">
               <h1>Technical Skills</h1>
-            </MainHeadingWrapper>
+            </MainHeadingWrapper> */}
+            <SubHeadingWrapper>
+              <h4>Technical Skills</h4>
+            </SubHeadingWrapper>
+
             <IconHolder>
               <div>
                 <Icons>
@@ -160,9 +167,12 @@ function Skillset() {
         <div className="gap div"></div>
         <div>
           <div>
-            <MainHeadingWrapper size="31px">
+            {/* <MainHeadingWrapper>
               <h1>Soft skills</h1>
-            </MainHeadingWrapper>
+            </MainHeadingWrapper> */}
+            <SubHeadingWrapper>
+              <h4>Soft skills</h4>
+            </SubHeadingWrapper>
             <IconHolder>
               <div>
                 <Icons>
@@ -207,9 +217,12 @@ function Skillset() {
             </IconHolder>
           </div>
           <div>
-            <MainHeadingWrapper size="31px">
+            <SubHeadingWrapper>
+              <h4>Other Tools</h4>
+            </SubHeadingWrapper>
+            {/* <MainHeadingWrapper>
               <h1>Other Tools</h1>
-            </MainHeadingWrapper>
+            </MainHeadingWrapper> */}
             <IconHolder>
               <div>
                 <Icons>

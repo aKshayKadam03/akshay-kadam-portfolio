@@ -6,7 +6,7 @@ import ProjectCard from "./ProjectCard";
 import ProjectDetail from "./ProjectDetail";
 
 const SlideSectionOne = styled.div`
-  min-height: ${(props) => (props.minHeightStatus ? "380vh" : "200vh")};
+  min-height: ${(props) => (props.minHeightStatus ? "380vh" : "230vh")};
   display: flex;
   justify-content: space-between;
   background-color: ${(props) => props.theme.body};
@@ -23,9 +23,6 @@ const SlideSectionOne = styled.div`
   }
   @media (max-width: 1024px) {
     min-height: ${(props) => (props.minHeightStatus ? "230vh" : "80vh")};
-  }
-  @media (max-width: 1024px) {
-    min-height: ${(props) => (props.minHeightStatus ? "230vh" : "90vh")};
   }
 `;
 
@@ -48,7 +45,7 @@ const BridgeTwo = styled.div`
     align-items: center;
     justify-content: space-between;
 
-    @media (max-width: 750px) {
+    @media (max-width: 850px) {
       flex-direction: column;
       flex-wrap: wrap;
     }

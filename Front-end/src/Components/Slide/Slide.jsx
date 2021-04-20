@@ -236,9 +236,7 @@ function Slide() {
                 </ParagraphWrapper>
                 <a href={resumePdf} download>
                   <ResumeButton>
-                    <i className="fas fa-download">
-                      <span> Download</span>
-                    </i>
+                    <span> Download</span>
                   </ResumeButton>
                 </a>
               </ResumeAction>
