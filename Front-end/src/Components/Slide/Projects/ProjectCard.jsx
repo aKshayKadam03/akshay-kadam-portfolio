@@ -3,46 +3,28 @@ import styled from "styled-components";
 import { SubHeadingWrapper } from "../../Elements/Elements";
 
 const ProjectCardWrapper = styled.div`
-  width: 100%;
-  max-width: 400px;
-  height: 300px;
+  width: 22%;
+  min-width: 300px;
+  height: 250px;
   border-radius: 5px;
-  color: #ffffff;
-  margin: 20px;
-  border: 1px solid white;
   background-size: cover;
   background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
-  display: grid;
-  place-content: center;
-
+  margin: 5px;
+  border: 1px solid white;
+  :hover {
+    opacity: 0.8;
+    background: black;
+  }
+  /* 
   :hover {
     transition: all 3000ms ease;
     color: #ffffff;
     background: url(${(props) => props.backgroundImg});
-  }
-  @media (max-width: 850px) {
-    height: 250px;
-    max-width: 350px;
-    :hover {
-      transition: all 500ms ease;
-      color: #ffffff;
-      background: ${(props) => props.theme.secondary};
-    }
-  }
-  @media (max-width: 500px) {
-    height: 50px;
-    max-width: 280px;
-    :hover {
-      transition: all 500ms ease;
-      color: #ffffff;
-      background: ${(props) => props.theme.secondary};
-    }
-  }
+  } */
 `;
 
 function ProjectCard({
@@ -58,6 +40,20 @@ function ProjectCard({
   setCurrentProject,
   setPanel,
 }) {
+  const onHoverHandler = () => {
+    setCurrentProject({
+      img,
+      title,
+      description,
+      techStack,
+      repoLink,
+      demoLink,
+      responsibilities,
+      type,
+      blog,
+    });
+  };
+
   const onClickHandler = () => {
     setPanel(true);
     setCurrentProject({
@@ -74,7 +70,11 @@ function ProjectCard({
   };
 
   return (
-    <ProjectCardWrapper onClick={onClickHandler} backgroundImg={img}>
+    <ProjectCardWrapper
+      onMouseOver={onHoverHandler}
+      onClick={onClickHandler}
+      backgroundImg={img}
+    >
       <SubHeadingWrapper>
         <h1>{title}</h1>
       </SubHeadingWrapper>

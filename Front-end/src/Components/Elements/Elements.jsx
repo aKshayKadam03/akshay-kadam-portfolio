@@ -9,7 +9,7 @@ export const MainHeadingWrapper = styled.div`
   padding: 30px;
 
   > h1 {
-    font-size: 3rem;
+    font-size: 2.6rem;
     width: fit-content;
     margin: 0 auto;
     font-weight: 600;
@@ -22,11 +22,11 @@ export const MainHeadingWrapper = styled.div`
     border-radius: 10px;
   }
   @media (max-width: 1100px) {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 
   @media (max-width: 750px) {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 `;
 
@@ -42,11 +42,11 @@ export const SubHeadingWrapper = styled.div`
     }
   }
   @media (max-width: 1100px) {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   @media (max-width: 750px) {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 `;
 
@@ -59,10 +59,10 @@ export const ParagraphWrapper = styled.div`
     /* font-family: "Lato", sans-serif; */
   }
   @media (max-width: 1100px) {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 
   @media (max-width: 750px) {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
   }
 `;

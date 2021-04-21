@@ -176,6 +176,7 @@ function Slide() {
         <SectionWrapper>
           <Projects></Projects>
         </SectionWrapper>
+
         <SlideCanal>
           <Resume ref={resumeRef}>
             <img src={currentImage} alt="resume" />

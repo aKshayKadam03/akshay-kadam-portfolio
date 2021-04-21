@@ -1,17 +1,25 @@
 import React from "react";
 import styled from "styled-components";
+import { makeStyles } from "@material-ui/core/styles";
+import Modal from "@material-ui/core/Modal";
 
 import { MainHeadingWrapper } from "../../Elements/Elements";
 import ProjectCard from "./ProjectCard";
 import ProjectDetail from "./ProjectDetail";
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    overflowY: "scroll",
+    padding: "100px 0 ",
+  },
+}));
+
 const SlideSectionOne = styled.div`
-  min-height: ${(props) => (props.minHeightStatus ? "380vh" : "230vh")};
   display: flex;
   justify-content: space-between;
   background-color: ${(props) => props.theme.body};
   color: ${(props) => props.theme.fontColor};
-
+  padding-top: 2000px;
   flex-wrap: wrap;
   > div {
     display: flex;
@@ -21,8 +29,8 @@ const SlideSectionOne = styled.div`
     width: 30%;
     flex-wrap: wrap;
   }
-  @media (max-width: 1024px) {
-    min-height: ${(props) => (props.minHeightStatus ? "230vh" : "80vh")};
+  @media (max-width: 1100px) {
+    padding-top: 50px;
   }
 `;
 
@@ -41,13 +49,21 @@ const BridgeTwo = styled.div`
   flex-direction: column;
   cursor: pointer;
   > div:nth-child(2) {
+    padding: 50px 0;
+    border-radius: 5px;
     display: flex;
+    flex-wrap: wrap;
+    grid-row-gap: 20px;
+    width: 80%;
+    margin: 30px auto;
     align-items: center;
-    justify-content: space-between;
-
-    @media (max-width: 850px) {
-      flex-direction: column;
-      flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-size: cover;
+    background-position: center;
+    :hover {
+      transition: all 2000ms ease;
+      color: #ffffff;
+      background: url(${(props) => props.backgroundImg});
     }
   }
   ::after {
@@ -58,15 +74,11 @@ const BridgeTwo = styled.div`
     margin: 0 auto;
     box-shadow: -8px 8px 22px #b894b9;
   }
-`;
-
-let ProjectModal = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 60%;
-  margin: 0 auto;
+  @media (max-width: 1100px) {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+  }
 `;
 
 let projectArray = [
@@ -158,6 +170,7 @@ function Projects() {
   let [projects, setProjects] = React.useState(projectArray);
   const [panel, setPanel] = React.useState(false);
   let [currentProject, setCurrentProject] = React.useState({});
+  const classes = useStyles();
   return (
     <div id="projects">
       <BridgeTwo backgroundImg={currentProject.img}>
@@ -175,12 +188,16 @@ function Projects() {
             ></ProjectCard>
           ))}
         </div>
-        <ProjectDetail
-          id="currentProject"
-          {...currentProject}
-          panel={panel}
-          setPanel={setPanel}
-        ></ProjectDetail>
+        <Modal
+          className={classes.root}
+          open={panel}
+          onClose={() => setPanel(false)}
+        >
+          <ProjectDetail
+            {...currentProject}
+            setPanel={setPanel}
+          ></ProjectDetail>
+        </Modal>
       </BridgeTwo>
       <SlideSectionOne minHeightStatus={panel}></SlideSectionOne>
     </div>

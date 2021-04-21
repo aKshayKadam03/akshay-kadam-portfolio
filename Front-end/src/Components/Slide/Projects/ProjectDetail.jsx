@@ -46,12 +46,15 @@ const entranceAnimation = keyframes`
 `;
 
 const ProjectDetailWrapper = styled.div`
-  width: 80%;
+  width: 95%;
+  max-width: 1000px;
+  border-radius: 10px;
+  padding: 20px;
+  overflow: auto;
   border-radius: 5px;
   margin: 0 auto;
-  padding-top: 30px;
-  margin-bottom: 10px;
-  display: ${(props) => (props.status ? "inline" : "none")};
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.fontColor};
   animation: ${entranceAnimation} 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 
   > div:nth-child(1) {
@@ -110,15 +113,9 @@ const CloseButton = styled.div`
 
 const ProjectSection = styled.div`
   display: flex;
-  align-items: flex-start;
-  @media (max-width: 2000px) {
-    flex-direction: column;
-    align-items: center;
-  }
-  > div {
-    padding: 0 30px 30px 30px;
-    width: 100%;
-  }
+  align-items: center;
+
+  flex-direction: column;
   > div:nth-child(2) {
     display: flex;
     flex-direction: column;
@@ -134,10 +131,13 @@ const ProjectSection = styled.div`
       }
     }
   }
+  @media (max-width: 1200px) {
+    flex-direction: column;
+  }
 `;
 
 const ProjectImage = styled.div`
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   align-items: center;
   box-shadow: 2px 2px 60px #4d464d;
@@ -176,19 +176,25 @@ const ProjectIcon = styled.div`
 const ButtonHolders = styled.div`
   display: flex;
   justify-content: flex-end;
+
+  @media (max-width: 400px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 `;
 
 const Button = styled.button`
   padding: 10px 15px;
+  width: 120px;
   background-color: ${(props) => props.theme.body};
   color: ${(props) => props.theme.fontColor};
   font-size: 18px;
   border-radius: 5px;
-  border: 2px solid ${(props) => props.theme.secondary};
+  border: 1px solid ${(props) => props.theme.fontColor};
   margin: 7px;
   outline: none;
   :hover {
-    background-color: ${(props) => props.theme.secondary};
+    background-color: ${(props) => props.theme.fontColor};
     color: ${(props) => props.theme.body};
   }
   > i {
