@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { SubHeadingWrapper } from "../../Elements/Elements";
 
 const ProjectCardWrapper = styled.div`
-  width: 22%;
+  width: 30%;
   min-width: 300px;
-  height: 250px;
+  height: 300px;
   border-radius: 5px;
   background-size: cover;
   background-position: center;
@@ -19,12 +19,12 @@ const ProjectCardWrapper = styled.div`
     opacity: 0.8;
     background: black;
   }
-  /* 
+
   :hover {
     transition: all 3000ms ease;
     color: #ffffff;
     background: url(${(props) => props.backgroundImg});
-  } */
+  }
 `;
 
 function ProjectCard({

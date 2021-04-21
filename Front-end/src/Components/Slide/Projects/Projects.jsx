@@ -54,17 +54,12 @@ const BridgeTwo = styled.div`
     display: flex;
     flex-wrap: wrap;
     grid-row-gap: 20px;
-    width: 80%;
+    width: 90%;
     margin: 30px auto;
     align-items: center;
     justify-content: space-evenly;
     background-size: cover;
     background-position: center;
-    :hover {
-      transition: all 2000ms ease;
-      color: #ffffff;
-      background: url(${(props) => props.backgroundImg});
-    }
   }
   ::after {
     content: "";

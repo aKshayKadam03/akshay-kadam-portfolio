@@ -46,10 +46,10 @@ const entranceAnimation = keyframes`
 `;
 
 const ProjectDetailWrapper = styled.div`
-  width: 95%;
+  width: 93%;
   max-width: 1000px;
   border-radius: 10px;
-  padding: 20px;
+  padding: 20px 80px;
   overflow: auto;
   border-radius: 5px;
   margin: 0 auto;
@@ -64,7 +64,18 @@ const ProjectDetailWrapper = styled.div`
 
     @media (max-width: 750px) {
       flex-direction: column-reverse;
+      width: 100%;
     }
+  }
+
+  @media (max-width: 1024px) {
+    width: 75%;
+    padding: 30px;
+  }
+
+  @media (max-width: 750px) {
+    width: 80%;
+    padding: 30px;
   }
 `;
 
