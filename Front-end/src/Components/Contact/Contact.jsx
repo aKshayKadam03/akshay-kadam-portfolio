@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import Lottie from "react-lottie";
-import axios from "axios";
 import mailAnimation from "../Animations/mail.json";
 import { MainHeadingWrapper, SubHeadingWrapper } from "../Elements/Elements";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import emailjs from "emailjs-com";
 
 const mailOptions = {
   loop: true,
@@ -103,17 +103,28 @@ function Contact() {
   };
 
   const success = () => toast.dark("Successfully Sent");
-  const failure = () => toast.failure("Something went wrong");
+  const failure = () => toast.error("Something went wrong");
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
-    try {
-      await axios.post("http://localhost:8989/mail", data);
-      setData(intitialData);
-      success();
-    } catch (err) {
-      failure();
-    }
+
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
+        e.target,
+        process.env.REACT_APP_USER_ID
+      )
+      .then(
+        (result) => {
+          success();
+        },
+        (error) => {
+          failure();
+        }
+      );
+
+    setData(intitialData);
   };
 
   const { name, email, message } = data;

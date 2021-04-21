@@ -60,6 +60,15 @@ const BridgeTwo = styled.div`
   }
 `;
 
+let ProjectModal = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 60%;
+  margin: 0 auto;
+`;
+
 let projectArray = [
   {
     img:
@@ -166,7 +175,6 @@ function Projects() {
             ></ProjectCard>
           ))}
         </div>
-
         <ProjectDetail
           id="currentProject"
           {...currentProject}
