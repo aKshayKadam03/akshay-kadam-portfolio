@@ -1,53 +1,52 @@
 import React from "react";
 import styled from "styled-components";
-import Lottie from "react-lottie";
-import mailAnimation from "../Animations/mail.json";
+
 import { MainHeadingWrapper, SubHeadingWrapper } from "../Elements/Elements";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import emailjs from "emailjs-com";
 
-const mailOptions = {
-  loop: true,
-  autoplay: true,
-  animationData: mailAnimation,
-  rendererSettings: {
-    preserveAspectRatio: "xMidYMid slice",
-  },
-};
-
 const ContactWrapper = styled.div`
-  min-height: 50vh;
   background-color: ${(props) => props.theme.body};
   color: ${(props) => props.theme.fontColor};
+  padding: 150px 0;
+  > div:nth-child(1) {
+    padding-bottom: 80px;
+  }
 `;
 
 const ContactMain = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
-  @media (max-width: 1000px) {
-    flex-direction: column-reverse;
-  }
+  flex-wrap: wrap;
 
   > div {
-    width: 100%;
-    margin: 10px auto;
+    width: 45%;
+    margin: 0 auto;
   }
+
+  @media (max-width: 1000px) {
+    > div {
+      width: 100%;
+      min-width: 0px;
+    }
+  }
+`;
+
+const Form = styled.div`
   form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 80%;
-    margin: 0 auto;
+    margin: 0px auto;
     > div {
       margin-bottom: 20px;
       width: 100%;
       input {
-        width: 95%;
+        width: 100%;
         font-size: 19px;
-        padding: 15px;
+        padding: 10px;
         border-radius: 5px;
         outline: none;
         border: 3px solid white;
@@ -57,34 +56,42 @@ const ContactMain = styled.div`
         border-bottom: 3px solid ${(props) => props.theme.secondary};
       }
     }
+    text-align: left;
+  }
+  @media (max-width: 768px) {
+    /* form {
+      width: 100%;
+    } */
   }
 `;
 
-const ContactAction = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  i {
-    margin-right: 25px;
-    font-size: 25px;
-  }
+const FindMeElseWhere = styled.div`
+  > div {
+    display: flex;
+    width: 85%;
+    align-items: center;
 
+    margin: 0 auto;
+    font-size: 18px;
+    > div {
+      margin: 1.5% 4%;
+    }
+  }
   a {
     text-decoration: none;
-    color: white;
-  }
-  a:hover {
-    color: ${(props) => props.theme.secondary};
+    color: inherit;
   }
 `;
 
 const SendButton = styled.button`
-  padding: 5px 25px;
+  padding: 10px 25px;
+  width: 200px;
   border: none;
   border-radius: 5px;
-  margin: 10px;
   font-size: 18px;
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2ch;
   color: ${(props) => props.theme.body};
   background-color: ${(props) => props.theme.secondary};
 `;
@@ -131,13 +138,13 @@ function Contact() {
 
   return (
     <ContactWrapper id="contact">
+      <MainHeadingWrapper>
+        <h1>Get In Touch</h1>
+        <div></div>
+      </MainHeadingWrapper>
       <ToastContainer />
       <ContactMain>
-        <div>
-          <MainHeadingWrapper>
-            <h1>Get In Touch</h1>
-            <div></div>
-          </MainHeadingWrapper>
+        <Form>
           <form onSubmit={onSubmitHandler}>
             <div>
               <input
@@ -166,23 +173,37 @@ function Contact() {
                 placeholder="Message"
               />
             </div>
-            <ContactAction>
-              <div>
-                <a href="tel:+917975960302">
-                  <i className="fas fa-phone-alt"></i>
-                </a>
-
-                <a href="https://api.whatsapp.com/send?phone=919036411285">
-                  <i className="fab fa-whatsapp"></i>
-                </a>
-              </div>
-              <SendButton>Send</SendButton>
-            </ContactAction>
+            <div>
+              <SendButton>Send </SendButton>
+            </div>
           </form>
-        </div>
-        <div>
-          <Lottie options={mailOptions}></Lottie>
-        </div>
+        </Form>
+        <FindMeElseWhere>
+          <div>
+            <div>
+              <a href="tel:+917975960302">
+                <i className="fas fa-phone-alt"></i>
+              </a>
+            </div>
+            <div>
+              <a href="tel:+917975960302">
+                <p>+91 7975960302</p>
+              </a>
+            </div>
+          </div>
+          <div>
+            <div>
+              <a href="mailto:akshaykadam7991@gmail.com">
+                <i className="fas fa-envelope"></i>
+              </a>
+            </div>
+            <div>
+              <a href="mailto:akshaykadam7991@gmail.com">
+                <p>akshaykadam7991@gmail.com</p>
+              </a>
+            </div>
+          </div>
+        </FindMeElseWhere>
       </ContactMain>
     </ContactWrapper>
   );

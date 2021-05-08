@@ -21,7 +21,6 @@ const SliderWrapper = styled.div`
 `;
 
 const SlideMain = styled.div`
-  min-height: 100vh;
   position: relative;
   width: 100%;
   margin: 0 auto;
@@ -31,25 +30,22 @@ const SlideMain = styled.div`
 `;
 
 const SlideCanal = styled.div`
-  position: absolute;
+  padding-top: 150px;
+  /* position: absolute; */
   display: flex;
   left: 50%;
   top: 0;
   transform: translate(-50%, 0);
   width: 40%;
-  height: 100%;
+  min-height: 180vh;
   flex-direction: column;
   justify-content: space-between;
-
-  @media (max-width: 1100px) {
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-  }
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
 `;
 
 const Resume = styled.div`
-  background: url(${(props) => props.img});
   background-size: contain;
   background-repeat: no-repeat;
   position: sticky;
@@ -143,43 +139,27 @@ const ResumeButton = styled.button`
 const SectionWrapper = styled.div`
   width: 100%;
   position: relative;
+  margin: 0px auto;
 `;
 
-function Slide() {
-  const [currentImage, setCurrentImage] = React.useState(resumeOne);
-
-  let resumeRef = React.useRef();
-
-  //changing images with scroll height
-  React.useEffect(() => {
-    document.addEventListener("scroll", () => {
-      if (window.pageYOffset < 3000) {
-        setCurrentImage(resumeOne);
-      } else if (window.pageYOffset < 4500) {
-        setCurrentImage(resumeTwo);
-      } else {
-        setCurrentImage(resumeFinal);
-      }
-    });
-  });
-
+function Slide({ currentTheme }) {
   return (
     <SliderWrapper>
-      <Proficiencies></Proficiencies>
+      {/* <Proficiencies></Proficiencies> */}
       <SlideMain>
         <SectionWrapper>
           <Skillset></Skillset>
         </SectionWrapper>
         <SectionWrapper>
-          <TimeLine></TimeLine>
+          <TimeLine currentTheme={currentTheme}></TimeLine>
         </SectionWrapper>
         <SectionWrapper>
           <Projects></Projects>
         </SectionWrapper>
 
-        <SlideCanal>
-          <Resume ref={resumeRef}>
-            <img src={currentImage} alt="resume" />
+        <SlideCanal id="resume">
+          <Resume>
+            <img src={resumeFinal} alt="resume" />
           </Resume>
           <div>
             <Envelope>
@@ -196,7 +176,7 @@ function Slide() {
                 <a
                   target="_blank"
                   rel="noreferrer"
-                  href="https://drive.google.com/file/d/1y4Ym7brDI7JevzAkr5MvblnHRZh_N1vr/view?usp=sharing"
+                  href="https://drive.google.com/file/d/1qx3ziCypqLEZylAUJCwkJZphT_mNZrUX/view?usp=sharing"
                   download
                 >
                   <ResumeButton>

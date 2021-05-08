@@ -9,18 +9,24 @@ import Footer from "./Components/Footer/Footer";
 import Head from "./Components/Head/Head";
 import Slide from "./Components/Slide/Slide";
 
-// #03506f
+// body: "#0a192f",
 
+// #f8f5f1
+// #f2edd7
 const LightTheme = {
-  body: "#0a192f",
-  fontColor: "#fff",
+  body: "#f3f4ed",
+  fontColor: "#000",
   secondary: "#fec107",
+  iconFilter: "saturate(5%)  invert(0%)",
+  profileBg: "#f8f5f1",
 };
 //#151515
 const DarkTheme = {
   body: "#000",
   fontColor: "#fff",
   secondary: "#C50E6A",
+  iconFilter: "saturate(5%)  invert(100%)",
+  profileBg: "#151515",
 };
 
 const themes = {
@@ -40,8 +46,7 @@ function App() {
       <div className="App">
         <ToTop></ToTop>
         <Head currentTheme={currentTheme} themeToggler={themeToggler}></Head>
-        <About></About>
-        <Slide></Slide>
+        <Slide currentTheme={currentTheme}></Slide>
         <Contact></Contact>
         <Footer></Footer>
       </div>

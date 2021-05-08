@@ -4,146 +4,144 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import { v4 as uuid } from "uuid";
-const educationItems = [
-  {
-    time: "2020-21",
-    school: "Masai School",
-    course: "Full Stack Web Development",
-    details: " Lorem ipsum dolor sit amet consectetur adipisicing elit.  ",
-  },
-  {
-    time: "2015-20",
-    school: "KLE's Dr M.S Sheshgiri college of engineering and technology",
-    course: "B.E Computer Science",
-    details: " Lorem ipsum dolor sit amet consectetur adipisicing elit.  ",
-  },
-  {
-    time: "2013-15",
-    school: "Govindram Seskaria College of Science",
-    course: "Pre-University",
-    details: " Lorem ipsum dolor sit amet consectetur adipisicing elit.  ",
-  },
-];
 
-function EducationTimeline() {
-  return (
-    <>
-      <VerticalTimeline position="left" layout="1-column-left">
-        {educationItems?.map((history) => (
-          <EducationTimelineCard key={history.school} {...history} />
-        ))}
-      </VerticalTimeline>
-    </>
-  );
-}
+import styled from "styled-components";
 
-function EducationTimelineCard({ time, school, course, details }) {
-  return (
-    <VerticalTimelineElement
-      className="vertical-timeline-element--work"
-      contentStyle={{
-        textAlign: "left",
-        background: "#ffffff",
-        color: "#1f1b1b",
-      }}
-      contentArrowStyle={{ borderRight: "7px solid  #ffffff" }}
-      date={time}
-      iconStyle={{
-        background: "#1d1717",
-        color: "#1a1111",
-        transform: "scale(0.4)",
-      }}
-    >
-      <h3
-        style={{ color: "#000000" }}
-        className="vertical-timeline-element-title"
-      >
-        {course}
-      </h3>
-      <h4
-        style={{ color: "#393e46" }}
-        className="vertical-timeline-element-subtitle"
-      >
-        {school}
-      </h4>
-      <p>{details}</p>
-    </VerticalTimelineElement>
-  );
-}
+const CardHead = styled.h3`
+  margin-bottom: 5px;
+`;
 
-function InternshipTimeline() {
-  const internshipItems = [
+const CardSubHead = styled.h4`
+  margin-bottom: 10px;
+  color: #131010;
+  font-weight: 600;
+`;
+
+const CardDetailText = styled.li`
+  color: #141313;
+  margin: 5px;
+`;
+
+const Responsibilities = styled.div`
+  color: #000000;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 10px 0;
+  letter-spacing: 0.2ch;
+`;
+
+function ChronoTimeline({ currentTheme }) {
+  const items = [
     {
-      time: "2020-20",
-      position: "Web Development Intern",
-      company: "CrackMbaInterview",
-      details: [
-        "Revamped the existing website.",
-        "Updated WordPress and plugins.",
-        "Integrated authentication and authorization.",
-        "Integrated payment gateway",
+      title: "October 2020 - Present",
+      cardSubtitle: "Masai School",
+      cardTitle: "Full Stack Web Development",
+      cardDetailedText: ["A full stack web development course."],
+    },
+    {
+      title: "June 2015 - October 2020",
+      cardSubtitle: "KLE's Dr M.S.S College of Engineering and Technology",
+      cardTitle: "B.E Computer Science",
+      cardDetailedText: [
+        "An undergraduate Computer Engineering course, includes theory of hardware and software aspects of both computer design and computer applications.",
       ],
     },
     {
-      time: "2019-20",
-      position: "Digital Marketing and Web development intern",
-      company: "Cubicode Digital Media LLP",
-      details: [
-        "Got requirements from clients.",
-        "Built and maintained websites with WordPress and basic HTML/CSS.",
-        "Did keyword research for SEO.",
+      title: "June 2020- July 2020",
+      cardTitle: "Web Development Intern",
+      cardSubtitle: "CrackMbaInterview",
+      cardDetailedText: [
+        "Revamped the existing website.",
+        "Updated WordPress and plugins.",
+        "Integrated authentication and authorization.",
+        "Integrated payment gateway.",
+      ],
+      internship: true,
+    },
+    {
+      title: "January 2020- June 2020",
+      cardTitle: "Digital Marketing and Web Development Intern",
+      cardSubtitle: "Cubicode Digital Media LLP",
+      cardDetailedText: [
+        "Obtained requirements from clients.",
+        "Built websites with WordPress.",
+        "Maintained websites with WordPress and HTML/CSS.",
+        "Keyword research for SEO.",
+      ],
+      internship: true,
+    },
+    {
+      title: "June 2013- May 2015",
+      cardSubtitle: "GSS College of Science",
+      cardTitle: "Pre-University College",
+      cardDetailedText: [
+        "An intermediate course of two years duration, conducted by state education institutions or boards in India.",
       ],
     },
   ];
 
   return (
-    <>
-      <VerticalTimeline position="left" layout="1-column-right">
-        {internshipItems.map((intern) => (
-          <InternshipTimelineCard key={uuid()} {...intern} />
-        ))}
-      </VerticalTimeline>
-    </>
+    <VerticalTimeline animate={false} position="left">
+      {items?.map((history) => (
+        <EducationTimelineCard
+          key={history.school}
+          currentTheme={currentTheme}
+          {...history}
+        />
+      ))}
+    </VerticalTimeline>
   );
 }
 
-function InternshipTimelineCard({ time, position, company, details }) {
+function EducationTimelineCard({
+  title,
+  cardTitle,
+  cardSubtitle,
+  cardDetailedText,
+  internship,
+  currentTheme,
+}) {
   return (
     <VerticalTimelineElement
       className="vertical-timeline-element--work"
       contentStyle={{
         textAlign: "left",
         background: "#ffffff",
-        color: "#1f1b1b",
+        color: `${currentTheme === "light" ? "#000" : "#fff"}`,
       }}
-      contentArrowStyle={{ borderLeft: "7px solid  #ffffff" }}
-      date={time}
+      contentArrowStyle={{ borderRight: "7px solid  #ffffff" }}
+      date={title}
       iconStyle={{
-        background: "#1d1717",
+        background: `${currentTheme === "light" ? "#1d1717" : "#C50E6A"}`,
         color: "#1a1111",
         transform: "scale(0.4)",
       }}
     >
-      <h3
+      <CardHead
         style={{ color: "#000000" }}
         className="vertical-timeline-element-title"
       >
-        {position}
-      </h3>
-      <h4
+        {cardTitle}
+      </CardHead>
+      <CardSubHead
         style={{ color: "#393e46" }}
         className="vertical-timeline-element-subtitle"
       >
-        {company}
-      </h4>
+        {cardSubtitle}
+      </CardSubHead>
+      {internship && (
+        <Responsibilities>
+          <b>Responsibilities</b>
+        </Responsibilities>
+      )}
+
       <ul>
-        {details.map((list) => (
-          <li>{list}</li>
+        {cardDetailedText.map((item) => (
+          <CardDetailText key={item.title}>{item}</CardDetailText>
         ))}
       </ul>
     </VerticalTimelineElement>
   );
 }
 
-export { EducationTimeline, InternshipTimeline };
+export { ChronoTimeline };

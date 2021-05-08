@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Switch from "react-switch";
+import day from "../Icons/day.svg";
+import night from "../Icons/night.svg";
 
 const NavBar = styled.div`
   width: 100%;
@@ -10,13 +12,14 @@ const NavBar = styled.div`
   height: 7vh;
   z-index: 1000;
   transition: all 300ms ease-out;
-
   background-color: ${(props) => props.theme.body};
   color: ${(props) => props.theme.fontColor};
 `;
 
 const NavItem = styled.div`
-  margin: 20px;
+  margin: 0 1%;
+  display: flex;
+  align-items: center;
   > a {
     text-decoration: none;
     font-size: 17px;
@@ -25,6 +28,16 @@ const NavItem = styled.div`
     font-family: ${(props) => props.theme.font};
     font-weight: 600;
   }
+  img {
+    width: 30px;
+    margin: 10px;
+  }
+  @media (max-width: 350px) {
+    img {
+      display: none;
+    }
+  }
+
   @media (max-width: 750px) {
     margin: 9px;
     a {
@@ -54,29 +67,33 @@ function Navigation({ themeToggler, currentTheme }) {
 
   return (
     <NavBar active={activeLink}>
-      <NavItem></NavItem>
       <Grow></Grow>
-      <NavItem onClick={() => activeLinkHandler(4)}>
-        <a href="#about">About</a>
-      </NavItem>
       <NavItem onClick={() => activeLinkHandler(3)}>
         <a href="#projects">Projects</a>
       </NavItem>
       <NavItem onClick={() => activeLinkHandler(5)}>
+        <a href="#resume">Resume</a>
+      </NavItem>
+      <NavItem onClick={() => activeLinkHandler(6)}>
         <a href="#contact">Contact</a>
       </NavItem>
+      <NavItem>
+        {currentTheme === "light" ? (
+          <img src={day} alt="day"></img>
+        ) : (
+          <img src={night} alt="night"></img>
+        )}
+        <Switch
+          onChange={switchHandler}
+          handleDiameter={20}
+          checked={toggle}
+          onColor="#fff"
+          offColor="#fff"
+          offHandleColor="#0A192F"
+          onHandleColor="#000000"
+        />
+      </NavItem>
 
-      <Switch
-        onChange={switchHandler}
-        checkedIcon={false}
-        uncheckedIcon={false}
-        handleDiameter={20}
-        checked={toggle}
-        onColor="#fff"
-        offColor="#fff"
-        offHandleColor="#0A192F"
-        onHandleColor="#000000"
-      />
       <NavItem></NavItem>
     </NavBar>
   );

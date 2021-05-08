@@ -4,7 +4,7 @@ import { ParagraphWrapper, SubHeadingWrapper } from "../Elements/Elements";
 
 const FooterWrapper = styled.div`
   border-top: 1px solid #9e9d9d;
-  min-height: 5vh;
+  min-height: 7vh;
   display: grid;
   place-items: center;
   background-color: ${(props) => props.theme.body};

@@ -14,30 +14,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SlideSectionOne = styled.div`
-  display: flex;
-  justify-content: space-between;
-  background-color: ${(props) => props.theme.body};
-  color: ${(props) => props.theme.fontColor};
-  padding-top: 2000px;
-  flex-wrap: wrap;
-  > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin: 0 auto;
-    width: 30%;
-    flex-wrap: wrap;
-  }
-  @media (max-width: 1100px) {
-    padding-top: 50px;
-  }
-`;
-
 const BridgeTwo = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
+  padding-top: 150px;
   width: 100%;
   margin: 0 auto;
   background-color: ${(props) => props.theme.body};
@@ -60,19 +38,6 @@ const BridgeTwo = styled.div`
     justify-content: space-evenly;
     background-size: cover;
     background-position: center;
-  }
-  ::after {
-    content: "";
-    width: 50%;
-    border-bottom: 2px solid ${(props) => props.theme.secondary};
-    border-radius: 10px;
-    margin: 0 auto;
-    box-shadow: -8px 8px 22px #b894b9;
-  }
-  @media (max-width: 1100px) {
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
   }
 `;
 
@@ -104,6 +69,32 @@ let projectArray = [
       "Laid out the database schema and built authentication.",
       "Developed the Home and Tariff page.",
       "Integrated the frontend and backend.",
+    ],
+  },
+  {
+    img:
+      "https://user-images.githubusercontent.com/39058941/115980813-38744000-a5ad-11eb-84ee-11823f9dad9f.png",
+    title: "Sanjeevani",
+    description: "Online portal to seek or provide help in these covid crisis.",
+    techStack: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "NextJs",
+      "Node",
+      "Express",
+      "MongoDB",
+    ],
+    repoLink: "https://github.com/therealdrtroll/sanjeevani",
+    demoLink: "#",
+    type:
+      "A collaborative project built by a team of 3 under 2 days during Masai Hackathon 2021.",
+    blogLink:
+      "https://ar1pperk.medium.com/we-were-asked-to-build-a-working-clockify-clone-in-three-days-the-results-may-surprise-you-30eea012e635",
+    responsibilities: [
+      "Developed the database schema and backend",
+      "Built dashboard user interface and submission forms",
+      "Developed the map for seekers and providers",
     ],
   },
   {
@@ -141,24 +132,6 @@ let projectArray = [
       "Implemented features like up-vote, share, and single product modal.",
     ],
   },
-  {
-    img:
-      "https://user-images.githubusercontent.com/39058941/103478684-652dfd00-4dee-11eb-8fa2-a022a00bdeea.png",
-    title: "Clockify",
-    description:
-      "A time tracking app which lets users to schedule, track and get insights on tasks",
-    techStack: ["HTML", "CSS", "JavaScript"],
-    repoLink: "https://github.com/therealdrtroll/clockify-clone",
-    demoLink: "#",
-    type: "A collaborative project built by a team of 3 under 4 days.",
-    blogLink:
-      "https://ar1pperk.medium.com/we-were-asked-to-build-a-working-clockify-clone-in-three-days-the-results-may-surprise-you-30eea012e635",
-    responsibilities: [
-      "Developed the time tracking engine for the application",
-      "Built and synchronized time tracker and scheduler",
-      "Implemented chart.js to visualize data",
-    ],
-  },
 ];
 
 function Projects() {
@@ -194,7 +167,6 @@ function Projects() {
           ></ProjectDetail>
         </Modal>
       </BridgeTwo>
-      <SlideSectionOne minHeightStatus={panel}></SlideSectionOne>
     </div>
   );
 }

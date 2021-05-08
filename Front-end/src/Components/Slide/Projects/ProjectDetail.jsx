@@ -11,6 +11,8 @@ import mongodb from "../../Icons/mongodb.svg";
 import node from "../../Icons/node.svg";
 import express from "../../Icons/express.svg";
 import material from "../../Icons/material.svg";
+import next from "../../Icons/next.svg";
+
 import {
   MainHeadingWrapper,
   ParagraphWrapper,
@@ -26,6 +28,7 @@ const techStackIcons = {
   Node: node,
   Express: express,
   MaterialUI: material,
+  NextJs: next,
 };
 
 const entranceAnimation = keyframes`
@@ -56,7 +59,9 @@ const ProjectDetailWrapper = styled.div`
   background-color: ${(props) => props.theme.body};
   color: ${(props) => props.theme.fontColor};
   animation: ${entranceAnimation} 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-
+  h1 {
+    padding: 0;
+  }
   > div:nth-child(1) {
     display: flex;
     align-items: center;
@@ -125,15 +130,22 @@ const CloseButton = styled.div`
 const ProjectSection = styled.div`
   display: flex;
   align-items: center;
-
   flex-direction: column;
   > div:nth-child(2) {
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     text-align: left;
     justify-content: space-between;
     > div {
       margin-bottom: 30px;
+      display: flex;
+      > div:nth-child(1) {
+        width: 220px;
+      }
+      @media (max-width: 768px) {
+        flex-direction: column;
+      }
       h4 {
         margin: 15px;
       }
@@ -141,9 +153,6 @@ const ProjectSection = styled.div`
         margin: 5px;
       }
     }
-  }
-  @media (max-width: 1200px) {
-    flex-direction: column;
   }
 `;
 
@@ -161,12 +170,10 @@ const ProjectImage = styled.div`
 
 const ProjectIcon = styled.div`
   width: fit-content;
-  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-
   border-radius: 5px;
   padding: 0 5px;
   text-transform: capitalize;
@@ -181,6 +188,7 @@ const ProjectIcon = styled.div`
   > div > img {
     height: 30px;
     margin: 10px;
+    filter: invert(5%);
   }
 `;
 
@@ -259,23 +267,23 @@ function ProjectDetail({
             <h4>{description}</h4>
           </SubHeadingWrapper>
           <div>
-            <ParagraphWrapper color="yellow">
+            <ParagraphWrapper>
               <p>Type :</p>
             </ParagraphWrapper>
 
-            <ParagraphWrapper color="white">
+            <ParagraphWrapper>
               <p>{type}</p>
             </ParagraphWrapper>
           </div>
 
           <div>
-            <ParagraphWrapper color="yellow">
+            <ParagraphWrapper>
               <p>Tech Stack :</p>
             </ParagraphWrapper>
             <ProjectIcon>
               {techStack?.map((item) => (
                 <div>
-                  <img src={techStackIcons[item]} alt="icon" />
+                  <img src={techStackIcons[item]} alt={item} />
                   <span>{item}</span>
                 </div>
               ))}
@@ -285,12 +293,13 @@ function ProjectDetail({
             <ParagraphWrapper color="yellow">
               <p>Responsibilities :</p>
             </ParagraphWrapper>
-
-            {responsibilities?.map((item) => (
-              <ParagraphWrapper key={uuid()} color="white">
-                <p>• {item}</p>
-              </ParagraphWrapper>
-            ))}
+            <div>
+              {responsibilities?.map((item) => (
+                <ParagraphWrapper key={uuid()} color="white">
+                  <p>• {item}</p>
+                </ParagraphWrapper>
+              ))}
+            </div>
           </div>
           <ButtonHolders>
             <a target="_blank" rel="noreferrer" href={repoLink}>

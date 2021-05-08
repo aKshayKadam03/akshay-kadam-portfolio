@@ -59,7 +59,11 @@ function About() {
       </MainHeadingWrapper>
       <SubHeadingWrapper>
         <h4>
-          <q> Life always begins with one step outside of your comfort zone </q>
+          <q>
+            Life always begins with one step outside of your comfort zone.
+            <br />
+            Shannon L. Alder
+          </q>
         </h4>
       </SubHeadingWrapper>
       <Content>
@@ -87,7 +91,7 @@ function About() {
               rel="noreferrer"
               href="https://www.linkedin.com/in/akshaykadam7991/"
             >
-              <i className="devicon-linkedin-plain colored"></i>
+              <i className="devicon-linkedin-plain"></i>
             </a>
             <a
               target="_blank"
@@ -98,7 +102,6 @@ function About() {
             </a>
           </Social>
         </ParagraphWrapper>
-        <Profile></Profile>
       </Content>
     </Wrapper>
   );
